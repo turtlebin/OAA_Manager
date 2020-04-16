@@ -1,0 +1,1 @@
+{"attr":{"id":"NUMBER","sex":"VARCHAR2"},"keys":{"key":""},"signed":{"id":"true","sex":"true"},"precision":{"id":"0","sex":"0"},"scale":{"id":"-127","sex":"0"},"table":{"id":"","sex":""},"data":[{"id":"1","sex":"男"}]}

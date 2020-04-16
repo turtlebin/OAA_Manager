@@ -1,0 +1,1 @@
+{"attr":{"XQBH":"VARCHAR2","XQMC":"VARCHAR2","XQDZ":"VARCHAR2"},"keys":{"key":""},"signed":{"XQBH":"true","XQMC":"true","XQDZ":"true"},"precision":{"XQBH":"2","XQMC":"100","XQDZ":"200"},"scale":{"XQBH":"2","XQMC":"100","XQDZ":"200"},"table":{"XQBH":"","XQMC":"","XQDZ":""},"data":[{"XQBH":"1","XQMC":"肇庆学院","XQDZ":""},{"XQBH":"2","XQMC":"星湖校区","XQDZ":""}]}

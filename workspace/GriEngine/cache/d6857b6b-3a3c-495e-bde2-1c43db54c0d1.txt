@@ -1,0 +1,1 @@
+{"attr":{"ID":"BIGINT","CLO1":"VARCHAR","CLO2":"VARCHAR"},"keys":{"key":""},"signed":{"ID":"true","CLO1":"false","CLO2":"false"},"precision":{"ID":"20","CLO1":"0","CLO2":"0"},"scale":{"ID":"0","CLO1":"0","CLO2":"0"},"table":{"ID":"o2mclob","CLO1":"o2mclob","CLO2":"o2mclob"},"data":[{"ID":"1","CLO1":"测试\"'、/","CLO2":"测试\"'、/"},{"ID":"2","CLO1":"","CLO2":""}]}

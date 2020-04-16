@@ -1,0 +1,1020 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/icepdf/batik-awt-util.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/icepdf/batik-dom.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/icepdf/batik-svg-dom.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/icepdf/batik-svggen.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/icepdf/batik-util.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/icepdf/batik-xml.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/icepdf/bcpkix-jdk15on.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/icepdf/bcprov-ext-jdk15on.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/icepdf/bcprov-jdk15on.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/icepdf/icepdf-core.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/icepdf/icepdf-viewer.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/jmf/jmf.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/jmf/sound.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/jaxen-1.1.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/jsoup-1.8.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/swt.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/commons-net-3.5.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/jsqlparser-0.9.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/jfreechart/jcommon-1.0.23.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/jfreechart/jfreechart-1.0.19-swt.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/jfreechart/jfreechart-1.0.19.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/json/commons-beanutils-1.8.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/json/commons-collections-3.2.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/json/commons-lang-2.5.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/json/commons-logging-1.1.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/json/ezmorph-1.0.6.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/json/json-lib-2.4-jdk15.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriManager/lib/EIB-Engine.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/asm-5.0.3.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/clojure-1.7.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/com.sun.rowset.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/commons-net-3.5.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/commons-pool2-2.4.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/disruptor-3.3.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/dom4j-2.1.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/EITP.Engine1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/EITP.ServerEngine1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/GriDriver.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/gson-2.2.4.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/jconn3.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/jdbc4-1.6.0_03_26972.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/jedis-2.9.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/json-lib-2.2-jdk15.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/json.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/jsonld-java-0.11.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/junit-3.8.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/kafka-clients-0.10.1.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/log4j-api-2.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/log4j-core-2.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/log4j-over-slf4j-1.6.6.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/log4j-slf4j-impl-2.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/lucene-core-3.6.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/lz4-1.3.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/mina-core-2.0.16.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/minlog-1.3.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/mysql-connector-java-5.1.46.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/objenesis-2.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/ojdbc6.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/okhttp-3.9.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/okio-1.13.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/quartz-2.2.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/servlet-api-2.5.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/slf4j-api-1.7.7.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/snappy-java-1.1.2.6.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/sqljdbc4-2.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/storm-core-1.0.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/sun.misc.BASE64Decoder.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/kryo-5.0.0-RC1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/GriEngine/lib/reflectasm-1.11.7.jar!/" />
+    <conelement value="org.scala-ide.sdt.launching.SCALA_CONTAINER" />
+    <conelement value="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER" />
+    <src_description expected_position="0" />
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/GriManager/target/classes" />
+    <output-test url="file://$MODULE_DIR$/GriManager/target/test-classes" />
+    <content url="file://$MODULE_DIR$/GriManager">
+      <sourceFolder url="file://$MODULE_DIR$/GriManager/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/GriManager/src/main/scala" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/GriManager/target" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="batik-awt-util.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/icepdf/batik-awt-util.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="batik-dom.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/icepdf/batik-dom.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="batik-svg-dom.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/icepdf/batik-svg-dom.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="batik-svggen.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/icepdf/batik-svggen.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="batik-util.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/icepdf/batik-util.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="batik-xml.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/icepdf/batik-xml.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="bcpkix-jdk15on.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/icepdf/bcpkix-jdk15on.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="bcprov-ext-jdk15on.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/icepdf/bcprov-ext-jdk15on.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="bcprov-jdk15on.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/icepdf/bcprov-jdk15on.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="icepdf-core.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/icepdf/icepdf-core.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="icepdf-viewer.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/icepdf/icepdf-viewer.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jmf.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/jmf/jmf.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="sound.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/jmf/sound.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jaxen-1.1.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/jaxen-1.1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jsoup-1.8.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/jsoup-1.8.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="swt.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/swt.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-net-3.5.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/commons-net-3.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://lib/commons-net-3.5-sources.jar" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jsqlparser-0.9.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/jsqlparser-0.9.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jcommon-1.0.23.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/jfreechart/jcommon-1.0.23.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jfreechart-1.0.19-swt.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/jfreechart/jfreechart-1.0.19-swt.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jfreechart-1.0.19.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/jfreechart/jfreechart-1.0.19.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-beanutils-1.8.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/json/commons-beanutils-1.8.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-collections-3.2.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/json/commons-collections-3.2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-lang-2.5.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/json/commons-lang-2.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-logging-1.1.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/json/commons-logging-1.1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="ezmorph-1.0.6.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/json/ezmorph-1.0.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="json-lib-2.4-jdk15.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/json/json-lib-2.4-jdk15.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="EIB-Engine.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/EIB-Engine.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
+    <orderEntry type="module" module-name="GriEngine" />
+    <orderEntry type="module" module-name="GriDriver" />
+    <orderEntry type="module-library">
+      <library name="asm-5.0.3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/asm-5.0.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="clojure-1.7.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/clojure-1.7.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="com.sun.rowset.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/com.sun.rowset.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="/GriEngine/lib/commons-net-3.5.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/commons-net-3.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-pool2-2.4.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/commons-pool2-2.4.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="disruptor-3.3.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/disruptor-3.3.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="dom4j-2.1.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/dom4j-2.1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="EITP.Engine1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/EITP.Engine1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="EITP.ServerEngine1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/EITP.ServerEngine1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="GriDriver.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/GriDriver.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="gson-2.2.4.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/gson-2.2.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jconn3.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/jconn3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jdbc4-1.6.0_03_26972.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/jdbc4-1.6.0_03_26972.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jedis-2.9.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/jedis-2.9.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="json-lib-2.2-jdk15.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/json-lib-2.2-jdk15.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="json.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/json.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jsonld-java-0.11.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/jsonld-java-0.11.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="junit-3.8.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/junit-3.8.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kafka-clients-0.10.1.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/kafka-clients-0.10.1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="log4j-api-2.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/log4j-api-2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="log4j-core-2.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/log4j-core-2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="log4j-over-slf4j-1.6.6.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/log4j-over-slf4j-1.6.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="log4j-slf4j-impl-2.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/log4j-slf4j-impl-2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="lucene-core-3.6.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/lucene-core-3.6.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="lz4-1.3.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/lz4-1.3.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="mina-core-2.0.16.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/mina-core-2.0.16.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="minlog-1.3.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/minlog-1.3.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="mysql-connector-java-5.1.46.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/mysql-connector-java-5.1.46.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="objenesis-2.1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/objenesis-2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="ojdbc6.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/ojdbc6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="okhttp-3.9.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/okhttp-3.9.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="okio-1.13.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/okio-1.13.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="quartz-2.2.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/quartz-2.2.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="servlet-api-2.5.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/servlet-api-2.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="slf4j-api-1.7.7.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/slf4j-api-1.7.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="snappy-java-1.1.2.6.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/snappy-java-1.1.2.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="sqljdbc4-2.0.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/sqljdbc4-2.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="storm-core-1.0.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/storm-core-1.0.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="sun.misc.BASE64Decoder.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/sun.misc.BASE64Decoder.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="kryo-5.0.0-RC1.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/kryo-5.0.0-RC1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="reflectasm-1.11.7.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriEngine/lib/reflectasm-1.11.7.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="scala-sdk-2.11.11" level="application" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-core_2.11:2.4.3" level="project" />
+    <orderEntry type="library" name="Maven: com.thoughtworks.paranamer:paranamer:2.8" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.avro:avro:1.8.2" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.tukaani:xz:1.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.avro:avro-mapred:hadoop2:1.8.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.avro:avro-ipc:1.8.2" level="project" />
+    <orderEntry type="library" name="Maven: com.twitter:chill_2.11:0.9.3" level="project" />
+    <orderEntry type="library" name="Maven: com.esotericsoftware:kryo-shaded:4.0.2" level="project" />
+    <orderEntry type="library" name="Maven: com.esotericsoftware:minlog:1.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.objenesis:objenesis:2.5.1" level="project" />
+    <orderEntry type="library" name="Maven: com.twitter:chill-java:0.9.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.xbean:xbean-asm6-shaded:4.8" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-client:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-common:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: xmlenc:xmlenc:0.52" level="project" />
+    <orderEntry type="library" name="Maven: commons-configuration:commons-configuration:1.6" level="project" />
+    <orderEntry type="library" name="Maven: commons-digester:commons-digester:1.8" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.2.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-auth:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.directory.server:apacheds-kerberos-codec:2.0.0-M15" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.directory.server:apacheds-i18n:2.0.0-M15" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.directory.api:api-asn1-api:1.0.0-M20" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.directory.api:api-util:1.0.0-M20" level="project" />
+    <orderEntry type="library" name="Maven: org.htrace:htrace-core:3.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-hdfs:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:jetty-util:6.1.26" level="project" />
+    <orderEntry type="library" name="Maven: xerces:xercesImpl:2.9.1" level="project" />
+    <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.3.04" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-mapreduce-client-app:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-mapreduce-client-common:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-yarn-client:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-yarn-server-common:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-mapreduce-client-shuffle:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-yarn-api:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-mapreduce-client-core:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-yarn-common:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: javax.xml.stream:stax-api:1.0-2" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-jaxrs:1.9.13" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-xc:1.9.13" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-mapreduce-client-jobclient:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-annotations:2.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-launcher_2.11:2.4.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-kvstore_2.11:2.4.3" level="project" />
+    <orderEntry type="library" name="Maven: org.fusesource.leveldbjni:leveldbjni-all:1.8" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.6.7" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.6.7" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-network-common_2.11:2.4.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-network-shuffle_2.11:2.4.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-unsafe_2.11:2.4.3" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.curator:curator-recipes:2.6.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:guava:16.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.zookeeper:zookeeper:3.4.6" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-math3:3.4.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:1.3.9" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.16" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:jul-to-slf4j:1.7.16" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.16" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.16" level="project" />
+    <orderEntry type="library" name="Maven: com.ning:compress-lzf:1.0.3" level="project" />
+    <orderEntry type="library" name="Maven: org.xerial.snappy:snappy-java:1.1.7.3" level="project" />
+    <orderEntry type="library" name="Maven: org.lz4:lz4-java:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.luben:zstd-jni:1.3.2-2" level="project" />
+    <orderEntry type="library" name="Maven: org.roaringbitmap:RoaringBitmap:0.7.45" level="project" />
+    <orderEntry type="library" name="Maven: org.roaringbitmap:shims:0.7.45" level="project" />
+    <orderEntry type="library" name="Maven: commons-net:commons-net:3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.json4s:json4s-jackson_2.11:3.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.json4s:json4s-core_2.11:3.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.json4s:json4s-ast_2.11:3.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.json4s:json4s-scalap_2.11:3.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-client:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: javax.ws.rs:javax.ws.rs-api:2.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:hk2-api:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:hk2-utils:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2.external:aopalliance-repackaged:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2.external:javax.inject:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:hk2-locator:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Maven: org.javassist:javassist:3.18.1-GA" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-common:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: javax.annotation:javax.annotation-api:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.bundles.repackaged:jersey-guava:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.hk2:osgi-resource-locator:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.core:jersey-server:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.media:jersey-media-jaxb:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.containers:jersey-container-servlet:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.containers:jersey-container-servlet-core:2.22.2" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-all:4.1.17.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty:3.9.9.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.clearspring.analytics:stream:2.7.0" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard.metrics:metrics-core:3.1.5" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard.metrics:metrics-jvm:3.1.5" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard.metrics:metrics-json:3.1.5" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard.metrics:metrics-graphite:3.1.5" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.6.7.1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-scala_2.11:2.6.7.1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.module:jackson-module-paranamer:2.7.9" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.ivy:ivy:2.4.0" level="project" />
+    <orderEntry type="library" name="Maven: oro:oro:2.0.8" level="project" />
+    <orderEntry type="library" name="Maven: net.razorvine:pyrolite:4.13" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.py4j:py4j:0.10.7" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-tags_2.11:2.4.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-crypto:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.spark-project.spark:unused:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.19" level="project" />
+    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.6.1" level="project" />
+    <orderEntry type="library" name="Maven: com.oracle:ojdbc7:12.1.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.mariadb.jdbc:mariadb-java-client:2.5.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-sql_2.11:2.4.3" level="project" />
+    <orderEntry type="library" name="Maven: com.univocity:univocity-parsers:2.7.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-sketch_2.11:2.4.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-catalyst_2.11:2.4.3" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.janino:janino:3.0.9" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.janino:commons-compiler:3.0.9" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:antlr4-runtime:4.7" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.orc:orc-core:nohive:1.5.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.orc:orc-shims:1.5.5" level="project" />
+    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
+    <orderEntry type="library" name="Maven: io.airlift:aircompressor:0.10" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.orc:orc-mapreduce:nohive:1.5.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.parquet:parquet-column:1.10.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.parquet:parquet-common:1.10.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.parquet:parquet-encoding:1.10.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.parquet:parquet-hadoop:1.10.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.parquet:parquet-format:2.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.parquet:parquet-jackson:1.10.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.arrow:arrow-vector:0.10.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.arrow:arrow-format:0.10.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.arrow:arrow-memory:0.10.0" level="project" />
+    <orderEntry type="library" name="Maven: com.carrotsearch:hppc:0.7.2" level="project" />
+    <orderEntry type="library" name="Maven: com.vlkan:flatbuffers:1.2.0-3f79e055" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.11" level="project" />
+    <orderEntry type="library" name="Maven: com.microsoft.sqlserver:mssql-jdbc:7.4.1.jre8" level="project" />
+    <orderEntry type="library" name="Maven: net.jpountz.lz4:lz4:1.3.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.58" level="project" />
+    <orderEntry type="library" name="Maven: com.opencsv:opencsv:4.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-text:1.3" level="project" />
+    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.9.3" level="project" />
+    <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-collections4:4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.spark:spark-hive_2.11:2.4.3" level="project" />
+    <orderEntry type="library" name="Maven: com.twitter:parquet-hadoop-bundle:1.6.0" level="project" />
+    <orderEntry type="library" name="Maven: org.spark-project.hive:hive-exec:1.2.1.spark2" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
+    <orderEntry type="library" name="Maven: javolution:javolution:5.5.1" level="project" />
+    <orderEntry type="library" name="Maven: log4j:apache-log4j-extras:1.2.17" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:antlr-runtime:3.4" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:stringtemplate:3.2.1" level="project" />
+    <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:ST4:4.0.4" level="project" />
+    <orderEntry type="library" name="Maven: com.googlecode.javaewah:JavaEWAH:0.3.2" level="project" />
+    <orderEntry type="library" name="Maven: org.iq80.snappy:snappy:0.2" level="project" />
+    <orderEntry type="library" name="Maven: stax:stax-api:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.opencsv:opencsv:2.3" level="project" />
+    <orderEntry type="library" name="Maven: org.spark-project.hive:hive-metastore:1.2.1.spark2" level="project" />
+    <orderEntry type="library" name="Maven: com.jolbox:bonecp:0.8.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: commons-cli:commons-cli:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-api-jdo:3.2.6" level="project" />
+    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-rdbms:3.2.9" level="project" />
+    <orderEntry type="library" name="Maven: commons-pool:commons-pool:1.5.4" level="project" />
+    <orderEntry type="library" name="Maven: commons-dbcp:commons-dbcp:1.4" level="project" />
+    <orderEntry type="library" name="Maven: javax.jdo:jdo-api:3.0.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.transaction:jta:1.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-httpclient:commons-httpclient:3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.calcite:calcite-avatica:1.2.0-incubating" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.calcite:calcite-core:1.2.0-incubating" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.calcite:calcite-linq4j:1.2.0-incubating" level="project" />
+    <orderEntry type="library" name="Maven: net.hydromatic:eigenbase-properties:1.1.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.6" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
+    <orderEntry type="library" name="Maven: joda-time:joda-time:2.9.3" level="project" />
+    <orderEntry type="library" name="Maven: org.jodd:jodd-core:3.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-core:3.2.10" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.thrift:libthrift:0.9.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.thrift:libfb303:0.9.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.derby:derby:10.12.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-compiler:2.11.11" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-xml_2.11:1.0.5" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-reflect:2.11.11" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hive:hive-jdbc:2.3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hive:hive-common:2.3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hive:hive-storage-api:2.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.orc:orc-core:1.3.4" level="project" />
+    <orderEntry type="library" name="Maven: jline:jline:2.12" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty.aggregate:jetty-all:7.6.0.v20120127" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:mail:1.4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.geronimo.specs:geronimo-jaspic_1.0_spec:1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.geronimo.specs:geronimo-annotation_1.0_spec:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: asm:asm-commons:3.1" level="project" />
+    <orderEntry type="library" name="Maven: asm:asm-tree:3.1" level="project" />
+    <orderEntry type="library" name="Maven: asm:asm:3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty.orbit:javax.servlet:3.0.0.v201112011016" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-1.2-api:2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-web:2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-slf4j-impl:2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.ant:ant:1.9.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.ant:ant-launcher:1.9.1" level="project" />
+    <orderEntry type="library" name="Maven: com.tdunning:json:1.8" level="project" />
+    <orderEntry type="library" name="Maven: com.github.joshelser:dropwizard-metrics-hadoop-metrics2-reporter:0.1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hive:hive-service:2.3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hive:hive-llap-server:2.3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hive:hive-llap-common:2.3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hive:hive-llap-client:2.3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hive:hive-llap-tez:2.3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.slider:slider-core:0.90.2-incubating" level="project" />
+    <orderEntry type="library" name="Maven: com.beust:jcommander:1.30" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-yarn-registry:2.7.1" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.jersey:jersey-client:1.9" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.jersey:jersey-json:1.9" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.xml.bind:jaxb-impl:2.2.3-1" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.jersey:jersey-server:1.9" level="project" />
+    <orderEntry type="library" name="Maven: com.google.inject.extensions:guice-servlet:3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:jetty:6.1.26" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: javax.servlet.jsp:jsp-api:2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jettison:jettison:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hive:hive-llap-common:test-jar:tests:2.3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hbase:hbase-hadoop2-compat:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-math:2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.yammer.metrics:metrics-core:2.2.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hbase:hbase-server:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hbase:hbase-procedure:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hbase:hbase-common:tests:1.1.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.hbase:hbase-prefix-tree:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.jersey:jersey-core:1.9" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:jetty-sslengine:6.1.26" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:jsp-2.1:6.1.14" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:jsp-api-2.1:6.1.14" level="project" />
+    <orderEntry type="library" name="Maven: org.mortbay.jetty:servlet-api-2.5:6.1.14" level="project" />
+    <orderEntry type="library" name="Maven: com.lmax:disruptor:3.3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hbase:hbase-common:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hbase:hbase-hadoop-compat:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.jpam:jpam:1.1" level="project" />
+    <orderEntry type="library" name="Maven: tomcat:jasper-compiler:5.5.23" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:jsp-api:2.0" level="project" />
+    <orderEntry type="library" name="Maven: ant:ant:1.6.5" level="project" />
+    <orderEntry type="library" name="Maven: tomcat:jasper-runtime:5.5.23" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.4" level="project" />
+    <orderEntry type="library" name="Maven: commons-el:commons-el:1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jamon:jamon-runtime:2.3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hive:hive-serde:2.3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.parquet:parquet-hadoop-bundle:1.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hive:hive-metastore:2.3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hbase:hbase-client:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hbase:hbase-annotations:1.1.1" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: jdk.tools:jdk.tools:1.7">
+        <CLASSES>
+          <root url="jar://C:/Program Files/Java/jdk1.8.0_161/lib/tools.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Maven: org.apache.hbase:hbase-protocol:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.htrace:htrace-core:3.1.0-incubating" level="project" />
+    <orderEntry type="library" name="Maven: org.jruby.jcodings:jcodings:1.0.8" level="project" />
+    <orderEntry type="library" name="Maven: org.jruby.joni:joni:2.1.2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.stephenc.findbugs:findbugs-annotations:1.3.9-1" level="project" />
+    <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:2.5.1" level="project" />
+    <orderEntry type="library" name="Maven: org.datanucleus:javax.jdo:3.2.0-m3" level="project" />
+    <orderEntry type="library" name="Maven: javax.transaction:transaction-api:1.1" level="project" />
+    <orderEntry type="library" name="Maven: co.cask.tephra:tephra-api:0.6.0" level="project" />
+    <orderEntry type="library" name="Maven: co.cask.tephra:tephra-core:0.6.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.inject:guice:3.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.inject.extensions:guice-assistedinject:3.0" level="project" />
+    <orderEntry type="library" name="Maven: it.unimi.dsi:fastutil:6.5.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.twill:twill-common:0.6.0-incubating" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.twill:twill-core:0.6.0-incubating" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.twill:twill-api:0.6.0-incubating" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.twill:twill-discovery-api:0.6.0-incubating" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.twill:twill-discovery-core:0.6.0-incubating" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.twill:twill-zookeeper:0.6.0-incubating" level="project" />
+    <orderEntry type="library" name="Maven: co.cask.tephra:tephra-hbase-compat-1.0:0.6.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hive:hive-shims:2.3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hive.shims:hive-shims-common:2.3.6" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.hive.shims:hive-shims-0.23:2.3.6" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.hadoop:hadoop-yarn-server-resourcemanager:2.7.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.sun.jersey.contribs:jersey-guice:1.9" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.hadoop:hadoop-yarn-server-applicationhistoryservice:2.7.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.hadoop:hadoop-yarn-server-web-proxy:2.7.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.zookeeper:zookeeper:test-jar:tests:3.4.6" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.hive.shims:hive-shims-scheduler:2.3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hive:hive-service-rpc:2.3.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.curator:curator-framework:2.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.curator:curator-client:2.7.1" level="project" />
+    <orderEntry type="library" name="Maven: log4j:log4j:1.2.12" level="project" />
+    <orderEntry type="library" name="Maven: io.protostuff:protostuff-core:1.6.0" level="project" />
+    <orderEntry type="library" name="Maven: io.protostuff:protostuff-api:1.6.0" level="project" />
+    <orderEntry type="library" name="Maven: io.protostuff:protostuff-runtime:1.6.0" level="project" />
+    <orderEntry type="library" name="Maven: io.protostuff:protostuff-collectionschema:1.6.0" level="project" />
+  </component>
+</module>

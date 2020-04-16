@@ -1,0 +1,5 @@
+package gri.engine.exception;
+
+public class FileNotFoundException {
+
+}

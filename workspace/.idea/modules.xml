@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GriDriver.iml" filepath="$PROJECT_DIR$/GriDriver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GriEngine.iml" filepath="$PROJECT_DIR$/GriEngine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GriManager.iml" filepath="$PROJECT_DIR$/GriManager.iml" />
+    </modules>
+  </component>
+</project>

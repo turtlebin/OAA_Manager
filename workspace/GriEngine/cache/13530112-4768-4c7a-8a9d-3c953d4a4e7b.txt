@@ -1,0 +1,1 @@
+{"attr":{"ID":"NUMBER","ID2":"NUMBER"},"keys":{"key":""},"signed":{"ID":"true","ID2":"true"},"precision":{"ID":"30","ID2":"0"},"scale":{"ID":"2","ID2":"-127"},"table":{"ID":"","ID2":""},"data":[{"ID":"123","ID2":"520"}]}

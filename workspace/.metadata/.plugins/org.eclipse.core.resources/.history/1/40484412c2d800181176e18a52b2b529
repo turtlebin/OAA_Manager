@@ -1,0 +1,15 @@
+package gri.engine.exception;
+
+public class FileNotFoundException extends Exception{
+	private String filePath;
+	public FileNotFoundException() {
+		super();
+	}
+	public FileNotFoundException(String msg,String filePath) {
+		super(msg);
+		this.filePath=filePath;
+	}
+	public String getFilePath() {
+		return filePath;
+	}
+}

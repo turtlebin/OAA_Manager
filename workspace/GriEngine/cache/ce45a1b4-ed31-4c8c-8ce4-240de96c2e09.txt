@@ -1,0 +1,1 @@
+{"attr":{"id":"BIGINT","date2":"DATETIME","timest":"TIMESTAMP"},"keys":{"key":""},"signed":{"id":"true","date2":"false","timest":"false"},"precision":{"id":"20","date2":"0","timest":"0"},"scale":{"id":"0","date2":"0","timest":"0"},"table":{"id":"time3","date2":"time3","timest":"time3"},"data":[{"id":"1","date2":"2018-03-20 18:00:00.0","timest":"2018-03-20 18:00:00.0"}]}

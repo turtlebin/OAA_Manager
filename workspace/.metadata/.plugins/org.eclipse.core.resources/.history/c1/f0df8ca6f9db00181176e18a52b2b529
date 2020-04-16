@@ -1,0 +1,35 @@
+###数格引擎本地格文档信息数据库存储配置
+
+#开启处理器功能
+run_process=false
+
+#EITP Server端口
+eitp_port=9020
+
+#kafka server 用于实时计算
+kafka_server = 127.0.0.1:9092
+
+#redis server 用于区块链实现
+#redis_server = 222.201.145.242
+redis_server = localhost
+
+#驱动
+driver=com.mysql.jdbc.Driver
+#数据库
+url=jdbc:MySQL://localhost:3306/gridoc?useUnicode=true&characterEncoding=UTF-8
+#url=jdbc:MySQL://222.201.145.242:3316/gridoc
+#用户名
+user=root
+#密码
+password=csasc
+#cache_file_path = D:/wwj/code/cache/
+#吧cache设成相对路径，使得部署时cache可以相对于bat文件
+cache_file_path =cache/
+#对象序列化文件存放路径
+#object_file_path=C:\\Users\\admin\\Desktop\\test\\
+#数据分片阈值
+threshold=200000
+#是否使用数据分片，值为true时使用，其他值时不使用
+data_fragment=false
+
+file_path=D:\\Gridoc\\properties\\

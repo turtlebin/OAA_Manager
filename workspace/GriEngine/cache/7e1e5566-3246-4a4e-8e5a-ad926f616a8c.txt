@@ -1,0 +1,1 @@
+{"attr":{"id":"NUMBER","date2":"DATETIME","timest":"TIMESTAMP"},"keys":{"key":""},"signed":{"id":"true","date2":"true","timest":"true"},"precision":{"id":"38","date2":"0","timest":"0"},"scale":{"id":"0","date2":"0","timest":"0"},"table":{"id":"","date2":"","timest":""},"data":[{"id":"1","date2":"2018-03-20 18:21:27.0","timest":"2018-3-20 18:21:29. 0"}]}
