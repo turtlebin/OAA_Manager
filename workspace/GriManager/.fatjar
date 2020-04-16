@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Sun Apr 23 16:54:10 CST 2017
+onejar.license.required=false
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=true
+jarname=D\:\\wwj\\runtime\\jar\\client.jar
+manifest.mergeall=true
+manifest.mainclass=gri.manager.ui.window.MainWindow
+manifest.file=<createnew>
+jarname.isextern=true
+onejar.expand=
+excludes=
+includes=

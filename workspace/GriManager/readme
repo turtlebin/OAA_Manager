@@ -1,0 +1,3 @@
+project encode: utf-8
+
+程序入口: gri.manager.ui.window.MainWindow类

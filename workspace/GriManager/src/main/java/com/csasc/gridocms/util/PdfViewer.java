@@ -1,0 +1,80 @@
+/*
+ * Copyright 2006-2016 ICEsoft Technologies Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an "AS
+ * IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ */
+
+package com.csasc.gridocms.util;
+
+import org.icepdf.ri.common.SwingController;
+import org.icepdf.ri.common.SwingViewBuilder;
+import org.icepdf.ri.util.FontPropertiesManager;
+import org.icepdf.ri.util.PropertiesManager;
+
+import javax.swing.*;
+import java.util.ResourceBundle;
+
+/**
+ * pdf阅读器-基于开源项目icepdf
+ * 
+ * @author 许诺
+ *
+ */
+public class PdfViewer {
+
+	private String filePath;
+
+	public PdfViewer(String filePath) {
+		this.filePath = filePath;
+	}
+
+	public void open() {
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				// build a component controller
+				SwingController controller = new SwingController();
+				controller.setIsEmbeddedComponent(true);
+
+				PropertiesManager properties = new PropertiesManager(System.getProperties(),
+						ResourceBundle.getBundle(PropertiesManager.DEFAULT_MESSAGE_BUNDLE));
+
+				// read/store the font cache.
+				ResourceBundle messageBundle = ResourceBundle.getBundle(PropertiesManager.DEFAULT_MESSAGE_BUNDLE);
+				new FontPropertiesManager(properties, System.getProperties(), messageBundle);
+
+				properties.set(PropertiesManager.PROPERTY_DEFAULT_ZOOM_LEVEL, "1.25");
+
+				SwingViewBuilder factory = new SwingViewBuilder(controller, properties);
+
+				// add interactive mouse link annotation support via callback
+				controller.getDocumentViewController().setAnnotationCallback(
+						new org.icepdf.ri.common.MyAnnotationCallback(controller.getDocumentViewController()));
+				JPanel viewerComponentPanel = factory.buildViewerPanel();
+				JFrame applicationFrame = new JFrame();
+				applicationFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+				applicationFrame.getContentPane().add(viewerComponentPanel);
+				// Now that the GUI is all in place, we can try openning a PDF
+				controller.openDocument(filePath);
+
+				// add the window event callback to dispose the controller and
+				// currently open document.
+				applicationFrame.addWindowListener(controller);
+
+				// show the component
+				applicationFrame.pack();
+				applicationFrame.setVisible(true);
+			}
+		});
+
+	}
+}

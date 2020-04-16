@@ -1,0 +1,12 @@
+###项目依赖jar包
+
+/hadoop #hadoop开源jar包
+/icepdf #开源pdf阅读器
+/jmf #开源视频播放器（支持格式太少）
+/EITP #消息路由引擎by张洪伟
+jsoup-1.8.1.jar #解析html
+GriDriver.jar #GriDoc Section Paragraph格文档定义及操作by王新阳
+dom4j-1.6.1.jar #解析XML
+jaxen-1.1.2.jar #XML查询
+mysql-connector-java-5.1.8-bin.jar #mysql连接JDBC
+swt.jar #swt图形库 从eclipse WindowBuilder中提取

@@ -1,0 +1,24 @@
+java JMF的配置方法
+
+1.首先去sun公司的主页去下载安装包：点击链接下载
+http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-java-client-419417.html#7372-jmf-2.1.1e-oth-JPR
+
+2.下载得到一个名为jmf-2_1_1e-windows-i586.exe的文件
+
+3.双击安装，默认的安装路径是C:\Program Files\JMF2.1.1e（可以根据自己的需要改变这个路径）
+
+4.安装后，需要配置下面的几个变量（vista系统和XP相同）,下面以vista系统为例子
+
+a.点击我的电脑--->属性--->高级系统设置--->环境变量
+
+b.找到CLASSPATH，分别增加jmf.jar和sound.jar
+
+C:\Program Files\JMF2.1.1e\lib\jmf.jar;
+
+C:\Program Files\JMF2.1.1e\lib\sound.jar;
+
+（其中C:\Program Files\JMF2.1.1e为你的JFM的安装路径）
+
+c.找到PATH,增加动态库
+
+C:\Program Files\JMF2.1.1e\bin;
