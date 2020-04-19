@@ -183,7 +183,6 @@ public class ParagraphDialog3 extends Dialog {
 		this.parentShell = parent;
 		this.node = treeNode;
 		this.windowType = windowType;
-		
 		this.manager = treeNode.manager.ProcessManager();
 	}
 

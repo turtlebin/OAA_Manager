@@ -80,6 +80,7 @@
     <content url="file://$MODULE_DIR$/GriManager">
       <sourceFolder url="file://$MODULE_DIR$/GriManager/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/GriManager/src/main/scala" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/GriManager/src/Resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/GriManager/target" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
@@ -1016,5 +1017,27 @@
     <orderEntry type="library" name="Maven: io.protostuff:protostuff-api:1.6.0" level="project" />
     <orderEntry type="library" name="Maven: io.protostuff:protostuff-runtime:1.6.0" level="project" />
     <orderEntry type="library" name="Maven: io.protostuff:protostuff-collectionschema:1.6.0" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/nebula_cdatetime_0.9.0.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/nebula_cdatetime_0.9.0.jar!/doc" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/GriManager/lib/nebula_cdatetime_0.9.0.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/GriDriver/lib/lombok-1.18.12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

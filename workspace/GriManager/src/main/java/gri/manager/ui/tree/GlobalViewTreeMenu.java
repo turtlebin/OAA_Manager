@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import gri.driver.model.process.SourceNode;
+import gri.manager.ui.window.newWindow.SourceNodeDialog;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -94,6 +96,8 @@ public class GlobalViewTreeMenu implements MouseListener {
 
 	private Action updateSync;
 	private Action updataAllSync;
+
+	private Action newSourceNode;
 	
 	private String CurrentUser;
 	
@@ -123,6 +127,8 @@ public class GlobalViewTreeMenu implements MouseListener {
 					this.initGriDocPoPMenu();
 				else if (node.data instanceof Section)
 					this.initSectionPoPMenu();
+				else if(node.data instanceof SourceNode)
+					this.initSourceNodeMenu();
 				else if(node.data instanceof Paragraph2)
 					this.initParagraph2PoPMenu();
 				else if (node.data instanceof Paragraph3)
@@ -134,7 +140,7 @@ public class GlobalViewTreeMenu implements MouseListener {
 	}
 
 
-	
+
 	// 空节点右键菜单
 	private void initEmptyPopMenu() {
 		MenuManager menuManager = new MenuManager();
@@ -195,6 +201,10 @@ public class GlobalViewTreeMenu implements MouseListener {
 		menuManager.add(this.deleteGriDoc);
 		menuManager.add(this.griDocProperty);
 		menuManager.add(this.previewData);
+
+		menuManager.add(this.newSourceNode);
+
+
 		if(!CurrentUser.equals("root")) {
 			this.newSection.setEnabled(false);
 			this.newParagraph.setEnabled(false);
@@ -223,6 +233,9 @@ public class GlobalViewTreeMenu implements MouseListener {
 		menuManager.add(this.deleteSection);
 		menuManager.add(this.sectionProperty);
 		menuManager.add(this.previewData);
+
+		menuManager.add(this.newSourceNode);
+
 		if(!CurrentUser.equals("root")) {
 			this.newSection.setEnabled(false);
 			this.deleteSection.setEnabled(false);
@@ -236,6 +249,11 @@ public class GlobalViewTreeMenu implements MouseListener {
 		}
 		Menu rootMenu = menuManager.createContextMenu(this.tree);
 		this.tree.setMenu(rootMenu);
+	}
+
+	private void initSourceNodeMenu(){
+		MenuManager menuManager = new MenuManager();
+
 	}
 
 	// 段右键菜单
@@ -580,6 +598,13 @@ public class GlobalViewTreeMenu implements MouseListener {
 			public void run() {
 				new ParagraphDialog3(Constant.WindowType_Add, ((GlobalViewTreeNode) item.getData()), mainWindowShell,
 						SWT.CLOSE | SWT.APPLICATION_MODAL).open();
+			}
+		};
+
+		this.newSourceNode=new Action("新建数据结点"){
+			public void run(){
+					new SourceNodeDialog(Constant.WindowType_Add, ((GlobalViewTreeNode) item.getData()), mainWindowShell,
+							SWT.CLOSE | SWT.APPLICATION_MODAL).open();
 			}
 		};
 		this.deleteConnection = new Action("删除") {
