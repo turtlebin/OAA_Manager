@@ -1,5 +1,6 @@
 package gri.manager.ui.tree;
 
+import gri.engine.integrate.Paragraph3;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 
@@ -23,6 +24,7 @@ public class GlobalViewLabelProvider extends LabelProvider {//获取标签，实
 	private Image gridoc;
 	private Image section;
 	private Image paragraph;
+	private Image paragraph3;
 
 	public GlobalViewLabelProvider() {
 		this.connect = new Image(null, this.getClass().getResourceAsStream("/icons/connection16.png"));
@@ -30,6 +32,7 @@ public class GlobalViewLabelProvider extends LabelProvider {//获取标签，实
 		this.gridoc = new Image(null, this.getClass().getResourceAsStream("/icons/gridoc16.png"));
 		this.section = new Image(null, this.getClass().getResourceAsStream("/icons/section16.png"));
 		this.paragraph = new Image(null, this.getClass().getResourceAsStream("/icons/paragraph16.png"));
+		this.paragraph3 = new Image(null, this.getClass().getResourceAsStream("/icons/section16.png"));
 	}
 
 	public Image getImage(Object element) {
@@ -45,6 +48,8 @@ public class GlobalViewLabelProvider extends LabelProvider {//获取标签，实
 				return this.gridoc;
 			else if (node.data instanceof Section)
 				return this.section;
+			else if(node.data instanceof Paragraph3)
+				return this.paragraph3;
 			else if (node.data instanceof Paragraph)
 				return this.paragraph;
 		}

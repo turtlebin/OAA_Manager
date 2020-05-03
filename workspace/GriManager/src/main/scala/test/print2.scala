@@ -1,4 +1,4 @@
-package scala.test
+package test
 import org.apache.spark.sql.{ Row, SparkSession }
 
 class print2  {

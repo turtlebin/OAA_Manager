@@ -1,13 +1,16 @@
-package scala.test
+package test
 
+import java.util.Properties
+
+import org.apache.spark.TaskContext
 import org.apache.spark.sql.jdbc.JdbcDialects
 import org.apache.spark.sql.{DataFrame, Row, SaveMode, SparkSession}
-import test.MariaSqlDialect
 
 object print extends App {
   val spark = SparkSession.builder()
     .config("spark.io.compression.codec", "snappy")
-    .config("hive.metastore.uris", "thrift://master:9083").master("local").enableHiveSupport().getOrCreate()
+    .config("hive.metastore.uris", "thrift://master:9083")
+    .config("spark.sql.shuffle.partitions","3").master("local[3]").enableHiveSupport().getOrCreate()
   spark.sparkContext.setLogLevel("ERROR")
   val mariadbSqlDialect = MariaSqlDialect
   JdbcDialects.registerDialect(mariadbSqlDialect)
@@ -38,8 +41,22 @@ object print extends App {
     .option("user", "root")
     .option("password", "csasc")
     .option("dbtable", "test1")
+  .option("lowerBound","1")
+  .option("upperBound","10")
+  .option("partitionColumn","id")
+  .option("numPartitions",3)
     .load()
   jdbcDF2.printSchema()
+  //通过这轮测试可以发现，1.spark写入数据库是每个分区创建一个连接池然后单线程插入的 2.对于排序后的数据，插入数据库后会乱序，并不会保持真正的顺序。3.排序时用的并不是范围分区
+  val jdbcDF3=jdbcDF2.orderBy($"id")
+  println((jdbcDF3.rdd.partitioner))
+  jdbcDF3.foreach(x=>println(TaskContext.getPartitionId()+":"+x.get(0)))
+  jdbcDF3.show()
+  val properties=new Properties()
+  properties.setProperty("user","root")
+  properties.setProperty("password","csasc")
+  jdbcDF3.write.mode(SaveMode.Overwrite).jdbc("jdbc:mariadb://192.168.31.100:3306/test?characterEncoding=utf8&useSSL=false&serverTimezone=UTC","test3",properties)
+
 //
 //  val df3 = jdbcDF.join(jdbcDF2, Seq("id"))
 //  df3.show()
@@ -51,10 +68,14 @@ object print extends App {
 
 //  jdbcDF2.write.mode(SaveMode.Append).saveAsTable("xhb.xhb2");
 //  jdbcDF2.write.mode(SaveMode.Append).insertInto("default.xhb3")//这种必须hive表列的数量与dataframe列的数量一致。
-  jdbcDF2.createOrReplaceTempView("test");
-  val df4=sql("insert into default.xhb3(id2,name) select id,name from test")//这种语法并不支持
-  df4.show()
-  df4.printSchema()
+//  jdbcDF2.createOrReplaceTempView("test");
+//  val df4=sql("insert into table default.xhb2(id,name) select id,name from test")//这种语法并不支持
+//  val df5=sql("select * from xhb2")
+//  df5.show()
+//  df5.printSchema()
+//  df5.write.jdbc("","",new Properties())
+//  df4.show()
+//  df4.printSchema()
 //    val hiveDF = sql("select * from test")
 //    hiveDF.show()
 //    hiveDF.printSchema()

@@ -55,9 +55,10 @@ public class DataFrameGetter {
         }else{
             df= leftDF.join(rightDF,getColumnSeq(leftDF,rightDF,joinInfo),joinType);
         }
-        df.show();
-        df.printSchema();
-        return df;
+        Dataset<Row> df2=DataFrameHelper.getUniqueColNameDF(df);
+        df2.show();
+        df2.printSchema();
+        return df2;
     }
 
     private Seq<String> getColumnSeq(Dataset<Row> left,Dataset<Row> right,String joinInfo){

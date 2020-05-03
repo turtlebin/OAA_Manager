@@ -1,18 +1,34 @@
 package gri.manager.newModel;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 import org.apache.spark.sql.types.DataType;
 
 @Data
 public class Col2 {
+    @JSONField(ordinal = 1)
     private String name;
+    @JSONField(ordinal = 2)
     private String srcType;
+    @JSONField(ordinal = 3)
     private String modifiedType;
 
     public Col2(String name, String srcType, String modifiedType) {
         this.name = name;
         this.srcType = srcType;
         this.modifiedType = modifiedType;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public String getSrcType(){
+        return this.srcType;
+    }
+
+    public String getModifiedType(){
+        return this.modifiedType;
     }
 
     @Override

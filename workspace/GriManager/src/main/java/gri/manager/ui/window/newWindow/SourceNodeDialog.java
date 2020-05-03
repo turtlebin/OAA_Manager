@@ -1,11 +1,13 @@
 package gri.manager.ui.window.newWindow;
 
+import Support.SourceInfoHelper;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import gri.manager.newModel.*;
 import gri.manager.ui.window.paragraph3.DataSourceDialog;
 import gri.manager.ui.window.paragraph3.JoinListDialog;
 import gri.manager.util.*;
+import net.sf.jsqlparser.statement.insert.Insert;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.sql.Row;
 import org.eclipse.swt.nebula.widgets.cdatetime.CDT;
@@ -145,7 +147,6 @@ public class SourceNodeDialog extends Dialog {
     private Group group_test;
 
 
-
     //Insert
     private Combo combo_insert_datasourceType;
     private Composite composite_insert_db;
@@ -156,6 +157,8 @@ public class SourceNodeDialog extends Dialog {
     private Group group_insert_hive_connect;
     private Group group_insert_file_connect;
     private Group group_insert_uom_connect;
+    private Group group_insert_map;
+
 
     private Combo combo_insert_db_type;
     private Text text_insert_hive_host;
@@ -178,6 +181,8 @@ public class SourceNodeDialog extends Dialog {
     private Combo combo_insert_uom_mode;
 
     private Button button_confirm_dest;
+    private Button button_confirm_insert;
+
     private Combo combo_source;
 
     private Text text_insert_uom_brokerList;
@@ -198,6 +203,7 @@ public class SourceNodeDialog extends Dialog {
     private Button button_cancel;
     private Button button_config;
     private Button button_withoutJoin;
+    private Button button_ok2;
 
     private Label label_updateDate;
     private Label label_dataSize;
@@ -246,6 +252,9 @@ public class SourceNodeDialog extends Dialog {
     private Table table2;
     private Table table3;
     private Table table4;
+    private Table table5;
+
+
     private Map<String, String> columnMap = new HashMap<String, String>();
     private Map<String, String> joinMap = new HashMap<String, String>();
     private List<String> joinList = new ArrayList<String>();
@@ -261,8 +270,11 @@ public class SourceNodeDialog extends Dialog {
     public LinkedHashMap<String, DataSourceInfo> nameToSource = new LinkedHashMap<>();
     public LinkedHashMap<String, Dataset<Row>> nameToDataFrame = new LinkedHashMap<>();
     private ArrayList<JoinInfo> joinInfos = new ArrayList<>();
-    private LinkedHashMap<String,Dataset<Row>> tempToDataFrame=new LinkedHashMap<>();
-    private LinkedHashMap<String,Dataset<Row>> wholeNameToDataFrame=new LinkedHashMap<>();
+    private LinkedHashMap<String, Dataset<Row>> tempToDataFrame = new LinkedHashMap<>();
+    private LinkedHashMap<String, Dataset<Row>> wholeNameToDataFrame = new LinkedHashMap<>();
+    private ArrayList<String> insertList = new ArrayList<>();
+    private SyncConfig syncConfig = new SyncConfig();
+
 
     public SourceNodeDialog(int windowType, GlobalViewTreeNode treeNode, Shell parent, int style) {
         super(parent, style);
@@ -303,7 +315,8 @@ public class SourceNodeDialog extends Dialog {
 
         // shell.setSize(475, 706 - 240);
         tabFolder_main.setBounds(10, 10, 649, 1200 - 280);
-        button_cancel.setBounds(379, 1230 - 280, 80, 27);
+        button_cancel.setBounds(450, 940, 80, 27);
+        button_ok2.setBounds(540,940,80,27);
         button_next.setBounds(278, 1230 - 280, 80, 27);
         button_ok.setBounds(178, 1230 - 280, 80, 27);
         button_withoutJoin.setBounds(78, 1230 - 280, 80, 27);
@@ -341,6 +354,7 @@ public class SourceNodeDialog extends Dialog {
         text_name = new Text(composite_3, SWT.BORDER);
         text_name.setLocation(94, 28);
         text_name.setSize(480, 23);
+        text_name.setText("integrate_1");
 
         Label label_3 = new Label(composite_3, SWT.NONE);
         label_3.setLocation(10, 71);
@@ -438,14 +452,13 @@ public class SourceNodeDialog extends Dialog {
         });
 
 
-
         Label labal_insert_datasourceType = new Label(composite_insert, SWT.NONE);
         labal_insert_datasourceType.setBounds(20, 13, 90, 17);
         labal_insert_datasourceType.setText("目标数据源类型：");
 
         combo_insert_datasourceType = new Combo(composite_insert, SWT.READ_ONLY);
         combo_insert_datasourceType.setBounds(121, 10, 88, 25);
-        combo_insert_datasourceType.setItems(new String[]{"数据库", "Hive", "文件","UOM"});
+        combo_insert_datasourceType.setItems(new String[]{"数据库", "Hive", "文件", "UOM"});
         combo_insert_datasourceType.select(0);
         combo_insert_datasourceType.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -465,7 +478,7 @@ public class SourceNodeDialog extends Dialog {
                     composite_insert_hive.setVisible(false);
                     composite_insert_file.setVisible(true);
                     composite_insert_uom.setVisible(false);
-                } else if(combo_insert_datasourceType.getSelectionIndex()==3){
+                } else if (combo_insert_datasourceType.getSelectionIndex() == 3) {
                     composite_insert_db.setVisible(false);
                     composite_insert_hive.setVisible(false);
                     composite_insert_file.setVisible(false);
@@ -474,22 +487,27 @@ public class SourceNodeDialog extends Dialog {
             }
         });
 
-        Label label_insert_source=new Label(composite_insert, SWT.NONE);
+        Label label_insert_source = new Label(composite_insert, SWT.NONE);
         label_insert_source.setBounds(230, 13, 75, 17);
         label_insert_source.setText("数据源选择：");
 
-        combo_source=new Combo(composite_insert, SWT.READ_ONLY);
+        combo_source = new Combo(composite_insert, SWT.READ_ONLY);
         combo_source.setBounds(310, 10, 90, 17);
-        combo_source.setItems(new String[]{"测试"});
-        combo_source.select(0);
 
-        button_confirm_dest=new Button(composite_insert,SWT.NONE);
+        button_confirm_dest = new Button(composite_insert, SWT.NONE);
         button_confirm_dest.setBounds(430, 10, 90, 27);
         button_confirm_dest.setText("确认选择");
         button_confirm_dest.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-                super.widgetSelected(e);
+                if (checkInsertIntegrity()) {
+                    LinkedHashMap<String, Dataset<Row>> map = wholeNameToDataFrame.size() == 0 ? nameToDataFrame : wholeNameToDataFrame;
+                    Dataset<Row> source = map.get(combo_source.getText());
+                    Col[] colsSource = SourceInfoHelper.getSourceInfo(source);
+                    Col[] colsDest = generateDataSourceInfo2();
+                    refreshInsertMapTable(combo_insert_datasourceType, colsSource, colsDest);
+                }
+
             }
         });
 
@@ -506,6 +524,11 @@ public class SourceNodeDialog extends Dialog {
         composite_insert_uom = new Composite(composite_insert, SWT.NONE);
         composite_insert_uom.setBounds(10, 41, 591, 230);
 
+        group_insert_map = new Group(composite_insert, SWT.NONE);
+        group_insert_map.setLocation(20, 273);
+        group_insert_map.setSize(571, 323);
+        group_insert_map.setText("数据列映射插入信息");
+
         group_insert_db_connect = new Group(composite_insert_db, SWT.NONE);
         group_insert_db_connect.setLocation(10, 10);
         group_insert_db_connect.setSize(571, 203);
@@ -513,7 +536,7 @@ public class SourceNodeDialog extends Dialog {
 
         group_insert_hive_connect = new Group(composite_insert_hive, SWT.NONE);
         group_insert_hive_connect.setLocation(10, 10);
-        group_insert_hive_connect.setSize(571,203 );
+        group_insert_hive_connect.setSize(571, 203);
         group_insert_hive_connect.setText("Hive");
 
         group_insert_file_connect = new Group(composite_insert_file, SWT.NONE);
@@ -629,7 +652,7 @@ public class SourceNodeDialog extends Dialog {
         label_topic_partitionCounts.setText("主题分区数量：");
         label_topic_partitionCounts.setBounds(300, 26, 80, 17);
 
-        text_insert_uom_partitionCounts = new Text(group_insert_uom_connect, SWT.BORDER );
+        text_insert_uom_partitionCounts = new Text(group_insert_uom_connect, SWT.BORDER);
         text_insert_uom_partitionCounts.setBounds(400, 23, 109, 23);
         text_insert_uom_partitionCounts.setText("1");
 
@@ -637,7 +660,7 @@ public class SourceNodeDialog extends Dialog {
         label_topic_replication.setText("主题复制因子：");
         label_topic_replication.setBounds(300, 61, 80, 17);
 
-        text_insert_replication = new Text(group_insert_uom_connect, SWT.BORDER );
+        text_insert_replication = new Text(group_insert_uom_connect, SWT.BORDER);
         text_insert_replication.setBounds(400, 58, 109, 23);
         text_insert_replication.setText("1");
 
@@ -647,21 +670,8 @@ public class SourceNodeDialog extends Dialog {
 
         combo_uom_mode = new Combo(group_insert_uom_connect, SWT.BORDER);
         combo_uom_mode.setBounds(400, 89, 109, 23);
-        combo_uom_mode.setItems(new String[]{"覆盖","追加"});
+        combo_uom_mode.setItems(new String[]{"覆盖", "追加"});
         combo_uom_mode.select(0);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         Label label_insert_hive_host = new Label(group_insert_hive_connect, SWT.NONE);
@@ -674,7 +684,7 @@ public class SourceNodeDialog extends Dialog {
 
         Label label_insert_hive_db_name = new Label(group_insert_hive_connect, SWT.NONE);
         label_insert_hive_db_name.setText("数据库:");
-        label_insert_hive_db_name.setBounds(10, 71,50 , 17);
+        label_insert_hive_db_name.setBounds(10, 71, 50, 17);
 
         text_insert_hive_db_name = new Text(group_insert_hive_connect, SWT.BORDER);
         text_insert_hive_db_name.setBounds(83, 68, 109, 23);
@@ -696,13 +706,13 @@ public class SourceNodeDialog extends Dialog {
         text_insert_hive_port.setBounds(400, 68, 109, 23);
         text_insert_hive_port.setText("9083");
 
-        Label label_insert_hive_mode= new Label(group_insert_hive_connect, SWT.NONE);
+        Label label_insert_hive_mode = new Label(group_insert_hive_connect, SWT.NONE);
         label_insert_hive_mode.setText("写入模式:");
         label_insert_hive_mode.setBounds(10, 116, 67, 17);
 
-        combo_insert_hive_mode=new Combo(group_insert_hive_connect,SWT.NONE);
-        combo_insert_hive_mode.setBounds(83,113,109,23);
-        combo_insert_hive_mode.setItems(new String[]{"覆盖","追加"});
+        combo_insert_hive_mode = new Combo(group_insert_hive_connect, SWT.NONE);
+        combo_insert_hive_mode.setBounds(83, 113, 109, 23);
+        combo_insert_hive_mode.setItems(new String[]{"覆盖", "追加"});
         combo_insert_hive_mode.select(0);
 
         Label label_insert_file_type = new Label(group_insert_file_connect, SWT.NONE);
@@ -716,7 +726,7 @@ public class SourceNodeDialog extends Dialog {
 
         Label label_insert_file_host = new Label(group_insert_file_connect, SWT.NONE);
         label_insert_file_host.setText("地址：");
-        label_insert_file_host.setBounds(10, 71,50 , 17);
+        label_insert_file_host.setBounds(10, 71, 50, 17);
 
         text_insert_file_host = new Text(group_insert_file_connect, SWT.BORDER);
         text_insert_file_host.setBounds(83, 68, 109, 23);
@@ -738,20 +748,14 @@ public class SourceNodeDialog extends Dialog {
         text_insert_file_port.setBounds(400, 68, 109, 23);
         text_insert_file_port.setText("9000");
 
-        Label label_insert_file_mode=new Label(group_insert_file_connect,SWT.NONE);
+        Label label_insert_file_mode = new Label(group_insert_file_connect, SWT.NONE);
         label_insert_file_mode.setText("写入模式:");
         label_insert_file_mode.setBounds(10, 116, 67, 17);
 
-        combo_insert_file_mode=new Combo(group_insert_file_connect,SWT.NONE);
-        combo_insert_file_mode.setBounds(83,113,109,23);
-        combo_insert_file_mode.setItems(new String[]{"覆盖","追加"});
+        combo_insert_file_mode = new Combo(group_insert_file_connect, SWT.NONE);
+        combo_insert_file_mode.setBounds(83, 113, 109, 23);
+        combo_insert_file_mode.setItems(new String[]{"覆盖", "追加"});
         combo_insert_file_mode.select(0);
-
-
-
-
-
-
 
 
         Button button_add_source = new Button(composite_4, SWT.NONE);
@@ -831,7 +835,7 @@ public class SourceNodeDialog extends Dialog {
             @Override
             public void widgetSelected(SelectionEvent e) {
                 if (windowType == Constant.WindowType_Add)
-                    new SyncConfigDialog(tempParagraph, shell, SWT.CLOSE | SWT.APPLICATION_MODAL).open();
+                    new SyncConfigDialog(tempParagraph, syncConfig, shell, SWT.CLOSE | SWT.APPLICATION_MODAL).open();
                 else
                     new SyncConfigDialog((Paragraph) node.data, shell, SWT.CLOSE | SWT.APPLICATION_MODAL).open();
             }
@@ -908,7 +912,7 @@ public class SourceNodeDialog extends Dialog {
 
         combo_join_eq = new Combo(group_join_configure, SWT.BORDER);
         combo_join_eq.setBounds(123, 142, 109, 23);
-        combo_join_eq.setItems(new String[]{"===",">=","<=",">","<"});
+        combo_join_eq.setItems(new String[]{"===", ">=", "<=", ">", "<"});
         combo_join_eq.select(0);
 
         Label label_right_table = new Label(group_join_configure, SWT.NONE);
@@ -945,9 +949,9 @@ public class SourceNodeDialog extends Dialog {
         label_using.setText("使用using连接：");
         label_using.setBounds(326, 145, 90, 17);
 
-        combo_using=new Combo(group_join_configure, SWT.BORDER);
+        combo_using = new Combo(group_join_configure, SWT.BORDER);
         combo_using.setBounds(439, 142, 109, 23);
-        combo_using.setItems(new String[]{"false","true"});
+        combo_using.setItems(new String[]{"false", "true"});
         combo_using.select(1);
 
         Button button_add_join = new Button(group_join_configure, SWT.NONE);
@@ -957,6 +961,7 @@ public class SourceNodeDialog extends Dialog {
             @Override
             public void widgetSelected(SelectionEvent e) {
                 if (checkJoinInfoIntegrity()) {
+                    System.out.println(combo_using.getText().trim());
                     JoinInfo info = JoinInfo.builder().left(combo_join_left.getText().trim()).right(combo_join_right.getText().trim())
                             .using(combo_using.getText().trim()).tempTableName(text_join_tmpTable.getText().trim())
                             .joinType(combo_join_type.getText().trim()).build();
@@ -979,6 +984,7 @@ public class SourceNodeDialog extends Dialog {
                     initTempTableDataframe();
                     combo_join_left.setItems(getCurrentTableList());
                     combo_join_right.setItems(getCurrentTableList());
+                    combo_source.setItems(getCurrentTableList());
                     refreshJoinTable(joinInfos);
                 }
             }
@@ -1290,6 +1296,23 @@ public class SourceNodeDialog extends Dialog {
             }
         });
 
+        button_confirm_insert = new Button(group_insert_map, SWT.NONE);
+        button_confirm_insert.setVisible(false);
+        button_confirm_insert.setText("确认");
+        button_confirm_insert.setBounds(470, 280, 90, 30);
+        button_confirm_insert.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                if (checkTableIntegrity()) {
+                    InsertMapInfo.InsertMapInfoBuilder builder = InsertMapInfo.builder();
+                    InsertMapInfo insertMapInfo = createInsertInfo(builder);
+                    String s = JSONObject.toJSONString(insertMapInfo);
+                    getIntegrateModel(insertMapInfo);
+
+                }
+            }
+        });
+
         button_enter = new Button(composite_sql, SWT.NONE);
         button_enter.setVisible(true);
         button_enter.setText("确认添加");
@@ -1372,30 +1395,6 @@ public class SourceNodeDialog extends Dialog {
         gridLayout3.numColumns = 1;
         group_test.setLayout(gridLayout3);
 
-//        GridData gridData = new org.eclipse.swt.layout.GridData();
-//        gridData.horizontalAlignment = SWT.FILL;
-//        gridData.grabExcessHorizontalSpace = true;
-//        gridData.grabExcessVerticalSpace = true;
-//
-//        table3 = new Table(group_test, SWT.SINGLE | SWT.FULL_SELECTION);
-//        table3.setVisible(true);
-////        table3.setHeaderVisible(true);// 设置显示表头
-//        table3.setLayoutData(gridData);// 设置表格布局
-//        table3.setLinesVisible(true);// 设置显示表格线/*
-//        table3.setLocation(2, 10);
-//
-//        TableColumn tableColumn=new TableColumn(table3,SWT.NONE);
-//        tableColumn.setMoveable(true);
-//        for(int i=0;i<100;i++) {
-//            TableItem item = new TableItem(table3, SWT.NONE);
-//            item.setText(new String[]{"测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试"});
-//        }
-//        for (int i = 0; i < 1; i++) {
-//            table3.getColumn(i).pack();
-//        }
-//        table3.setSize(550, 220);
-
-
         button_next = new Button(shell, SWT.NONE);
         if (this.windowType == Constant.WindowType_Add) {
             button_next.addSelectionListener(new SelectionAdapter() {
@@ -1415,50 +1414,6 @@ public class SourceNodeDialog extends Dialog {
                             }
                         }
                     });
-//				int total = table.getItemCount();
-//				// 循环所有行
-//				for (int i = 0; i < total; i++)
-//				{
-//					TableItem item = table.getItem(i);
-//					if (item.getChecked() == true)
-//					{
-//						if (item.getText(4).equals("")) {
-//							if(joinMap.containsKey(item.getText(0)))
-//							{
-//								if(!columnMap.containsKey(item.getText(0)))//处理从1更改为""的情况
-//								{
-//									columnMap.put(item.getText(0), joinMap.get(item.getText(0)));
-//								}
-//								MapUtil.removeMap(joinMap, item.getText(0));//处理完后还要删除joinMap
-//							}
-//							continue;
-//						}
-//
-//						else if (item.getText(4).equals("0"))// 输入0代表连接+插入；
-//						{
-//							String columnName = item.getText(0);
-//							if (joinMap.containsKey(columnName)) // 处理从1更改为0的情况
-//							{
-//								if (!(joinMap.get(item.getText(0)).equals(""))
-//										&& (!columnMap.containsKey(item.getText(0))))
-//								{
-//									columnMap.put(item.getText(0), joinMap.get(item.getText(0)));
-//								}
-//							}
-//							else
-//							{
-//								joinMap.put(item.getText(0), columnMap.get(item.getText(0)));//第一次即输入0时初始化joinMap
-//							}
-//						}
-//						else // 输入其他代表只连接不插入
-//						{
-//							joinMap.put(item.getText(0), columnMap.get(item.getText(0)));
-//							MapUtil.removeMap(columnMap, item.getText(0));
-//						}
-//					}
-//				}
-
-                    //MapUtil.show2(joinMap);
                 }
             });
         } else {//如果为编辑段
@@ -1480,6 +1435,7 @@ public class SourceNodeDialog extends Dialog {
             });
         }
         button_next.setBounds(278, 1702, 80, 27);
+        button_next.setVisible(false);
         button_next.setText("下一步");
 
         button_withoutJoin = new Button(shell, SWT.None);
@@ -1534,21 +1490,6 @@ public class SourceNodeDialog extends Dialog {
                             MainWindow.treeViewer_globalView.add(node,
                                     new GlobalViewTreeNode(paragraph, node.root, node.manager));// 最后在树节点中添加段
                         }
-//						else
-//						{
-//							String sql = "delete from paragraph where id=?";
-//							Object[] obj = new Object[] { paragraph.getId() };
-//							if (DBHelper.executeNonQuery(sql, obj) > 0) {
-//								if (((Paragraph2)paragraph).getSyncTimeType().equals(DriverConstant.SyncTimeType_1)) {
-//									DataSyncTaskManager dataSyncTaskManager = new DataSyncTaskManager();
-//									dataSyncTaskManager.init();
-//									dataSyncTaskManager.shutdown();
-//									dataSyncTaskManager.addAllTask();
-//									dataSyncTaskManager.addAllTask2();
-//									dataSyncTaskManager.addAllTask3();
-//								}
-//							}
-//						}
                         shell.close();
                     }
                 } else {
@@ -1557,6 +1498,7 @@ public class SourceNodeDialog extends Dialog {
                 }
             }
         });
+        button_withoutJoin.setVisible(false);
         button_withoutJoin.setText("无连接集成");
 
         button_ok = new Button(shell, SWT.None);
@@ -1585,56 +1527,6 @@ public class SourceNodeDialog extends Dialog {
 //						FileUtil.WriteMain(main, table);
                         FileUtil.WriteMainToJson(main, table);
 
-//						Connection conn = helper.getConnection();
-//						synchronized(SyncHelper.class) {
-//						DBDao.dataSources.clear();
-//						DBDao dao = new DBDao(main.getNeededList());
-//						List<DataSource> dataSources=null;
-//						try {
-//							dataSources = dao.getDataSources();
-//						} catch (SQLException e3) {
-//							// TODO Auto-generated catch block
-//							e3.printStackTrace();
-//						}
-//						List<DataJoin> dataJoinList = main.getDataJoinList();
-//						JoinHelper joinHelper = new JoinHelper(dataSources, dataJoinList);
-//
-//				         int i = 10;
-//				         while( i-- > 0)
-//				         {
-//				              System.out.println( "test : " + i);
-//				              try
-//				              {
-//				                   Thread.sleep(500);
-//				              }
-//				              catch (InterruptedException ie)
-//				              {
-//
-//				              }
-//				         }
-//
-//						if (!Constant.data_fragment) {
-//							joinHelper.JoinCore();
-//							try {
-//								MultiSourceSchemaTransformation.insertRecordsToTable2(joinHelper.getResults(), conn,
-//										table, main.getInsertMap());
-//								conn.close();
-//							} catch (SQLException e1) {
-//								// TODO Auto-generated catch block
-//								e1.printStackTrace();
-//							}
-//						} else {
-//							joinHelper.JoinCore2();
-//							try {
-//								MultiSourceSchemaTransformation.insertRecordsWithFragment(conn, table,
-//										main.getInsertMap());
-//								conn.close();
-//							} catch (Exception e2) {
-//								e2.printStackTrace();
-//							}
-//						}
-//						}
-//						System.out.println("success");
                     } else {
                         showMessage("请先填写完整的数据源对应信息及相关连接信息", shell);
                         return;
@@ -1654,21 +1546,7 @@ public class SourceNodeDialog extends Dialog {
                             MainWindow.treeViewer_globalView.add(node,
                                     new GlobalViewTreeNode(paragraph, node.root, node.manager));// 最后在树节点中添加段
                         }
-//						else
-//						{
-//							String sql = "delete from paragraph where id=?";
-//							Object[] obj = new Object[] { paragraph.getId() };
-//							if (DBHelper.executeNonQuery(sql, obj) > 0) {
-//								if (((Paragraph3)paragraph).getSyncTimeType().equals(DriverConstant.SyncTimeType_1)) {
-//									DataSyncTaskManager dataSyncTaskManager = new DataSyncTaskManager();
-//									dataSyncTaskManager.init();
-//									dataSyncTaskManager.shutdown();
-//									dataSyncTaskManager.addAllTask();
-//									dataSyncTaskManager.addAllTask2();
-//									dataSyncTaskManager.addAllTask3();
-//								}
-//							}
-//						}
+
                         shell.close();
                     }
                 } else {
@@ -1677,6 +1555,7 @@ public class SourceNodeDialog extends Dialog {
                 }
             }
         });
+        button_ok.setVisible(false);
         button_ok.setText("连接集成");
 
         button_cancel = new Button(shell, SWT.NONE);
@@ -1688,20 +1567,50 @@ public class SourceNodeDialog extends Dialog {
                 for (int i = 0; i < items.length; i++) {
                     JSONObject json = JSON.parseObject(items[i].getText(1));
                     if (json.getString("sourceType").toString().equalsIgnoreCase("Database")) {
-                        nameToSource.put(items[i].getText(0), JSON.parseObject(items[i].getText(1), DBSourceInfo.class));
+                        DBSourceInfo sourceInfo = JSON.parseObject(items[i].getText(1), DBSourceInfo.class);
+                        sourceInfo.setAlias(items[i].getText(0));
+                        nameToSource.put(items[i].getText(0), sourceInfo);
                     } else if (json.getString("sourceType").toString().equalsIgnoreCase("Hive")) {
+                        HiveSourceInfo sourceInfo = JSON.parseObject(items[i].getText(1), HiveSourceInfo.class);
+                        sourceInfo.setAlias(items[i].getText(0));
                         nameToSource.put(items[i].getText(0), JSON.parseObject(items[i].getText(1), HiveSourceInfo.class));
                     } else if (json.getString("sourceType").toString().equalsIgnoreCase("File")) {
+                        FileSourceInfo sourceInfo = JSON.parseObject(items[i].getText(1), FileSourceInfo.class);
+                        sourceInfo.setAlias(items[i].getText(0));
                         nameToSource.put(items[i].getText(0), JSON.parseObject(items[i].getText(1), FileSourceInfo.class));
                     }
                 }
                 initNameToDF();
                 combo_join_left.setItems(getCurrentTableList());
                 combo_join_right.setItems(getCurrentTableList());
+                combo_source.setItems(getCurrentTableList());
             }
         });
-        button_cancel.setBounds(379, 1702, 80, 27);
         button_cancel.setText("取消");
+
+        button_ok2 = new Button(shell, SWT.NONE);
+        button_ok2.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                GriElement paragraph = node.manager.addGriElement(node.root, (GriElement) node.data,
+                        new Paragraph3(text_name.getText().trim(), "", "", tempParagraph.getSyncTimeType(),
+                                tempParagraph.getSyncDirectionType(), tempParagraph.getWarmSyncDetail(), "",
+                                "", "", "", "", "", "", ""),
+                        false);// 此处返回了paragraph，并且实际上已经执行了setID方法
+                if (paragraph == null)
+                    showMessage("段创建失败！", shell);
+                else {
+                    boolean result = node.manager.forceSyncData(paragraph.getId());//强制同步数据,如果采用上面注释段部分的代码进行同步，
+                    //则会同时在引擎和管理器执行同一个同步方法，引擎中同步方法的类锁对不同包的类调用无效，因此必须得使用这种方法进行调用
+                    if (result) {
+                        MainWindow.treeViewer_globalView.add(node,
+                                new GlobalViewTreeNode(paragraph, node.root, node.manager));// 最后在树节点中添加段
+                    }
+                    shell.close();
+                }
+            }
+        });
+        button_ok2.setText("确认完成配置");
 
     }
 
@@ -1826,6 +1735,92 @@ public class SourceNodeDialog extends Dialog {
         return true;
     }
 
+    private boolean refreshInsertMapTable(Combo combo, Col[] colSrc, Col[] colDes) {
+        button_confirm_insert.setVisible(true);
+        if (table5 != null) {
+            table5.dispose();
+        }
+        initTable_InsertMap();
+        String[] tableHeader = null;
+        if (combo.getSelectionIndex() == 0) {
+            tableHeader = new String[]{"目标表的映射目标列     ", "目标列数据类型     ", "映射至目标表的数据源列    ", "数据源列数据类型    "};
+            ;
+        } else {
+            tableHeader = new String[]{"映射至目标表的数据源列                             ", "数据源列数据类型                       "};
+        }
+        for (int i = 0; i < tableHeader.length; i++) {
+            TableColumn tableColumn = new TableColumn(table5, SWT.NONE);
+            tableColumn.setText(tableHeader[i]);
+            tableColumn.setMoveable(true);
+        }
+
+        if (combo.getSelectionIndex() != 0) {
+            for (int i = 0; i < colSrc.length; i++) {
+                TableItem item = new TableItem(table5, SWT.NONE);
+                item.setText(new String[]{colSrc[i].getName(), colSrc[i].getType().typeName()});
+            }
+        } else {
+            for (int i = 0; i < colDes.length; i++) {
+                TableItem item = new TableItem(table5, SWT.NONE);
+                item.setText(new String[]{colDes[i].getName(), colDes[i].getType().typeName(), "", ""});
+            }
+        }
+        if (combo.getSelectionIndex() == 0) {
+            HashMap<String, String> map = new HashMap<>();
+            for (int i = 0; i < colSrc.length; i++) {
+                map.put(colSrc[i].getName(), colSrc[i].getType().typeName());
+            }
+
+            for (int i = 0; i < colDes.length; i++) {
+                TableEditor editor = new TableEditor(table5);
+                Combo src = new Combo(table5, SWT.NONE);
+                src.setItems(Arrays.stream(colSrc).map(x -> x.getName()).toArray(String[]::new));
+                editor.grabHorizontal = true;
+                editor.setEditor(src, table5.getItem(i), 2);
+                src.addModifyListener(new ModifyListener() {
+                    @Override
+                    public void modifyText(ModifyEvent modifyEvent) {
+                        editor.getItem().setText(2, src.getText());
+                        editor.getItem().setText(3, map.get(src.getText()));
+                    }
+                });
+            }
+        }
+
+        for (int i = 0; i < tableHeader.length; i++) {
+            table5.getColumn(i).pack();
+        }
+        table5.setSize(550, 260);
+        return true;
+    }
+
+    private boolean checkTableIntegrity() {
+        TableItem[] items = table5.getItems();
+        MessageBox box = new MessageBox(shell);
+        if (combo_insert_datasourceType.getSelectionIndex() == 0) {
+            insertList.clear();
+            for (int i = 0; i < items.length; i++) {
+                if (items[i].getChecked()) {
+                    if (items[i].getText(2).equals("") || items[i].getText(3).equals("")) {
+                        box.setMessage("参数填写不完整，请选择数据源列");
+                        box.open();
+                        insertList.clear();
+                        return false;
+                    }
+                    insertList.add(items[i].getText(2) + "->" + items[i].getText(0));
+                }
+            }
+        } else {
+            insertList.clear();
+            for (int i = 0; i < items.length; i++) {
+                if (items[i].getChecked()) {
+                    insertList.add(items[i].getText(0));
+                }
+            }
+        }
+        return true;
+    }
+
     private boolean refreshJoinTable(ArrayList<JoinInfo> list) {
         button_join_enter.setVisible(true);
         if (table4 != null) {
@@ -1930,6 +1925,49 @@ public class SourceNodeDialog extends Dialog {
         });// 创建表头的字符串数组
     }
 
+    private void initTable_InsertMap() {
+        GridData gridData = new org.eclipse.swt.layout.GridData();
+        gridData.horizontalAlignment = SWT.FILL;
+        gridData.grabExcessHorizontalSpace = true;
+        gridData.grabExcessVerticalSpace = true;
+
+        table5 = new Table(group_insert_map, SWT.SINGLE | SWT.FULL_SELECTION | SWT.CHECK);
+        table5.setVisible(true);
+        table5.setHeaderVisible(true);// 设置显示表头
+        table5.setLayoutData(gridData);// 设置表格布局
+        table5.setLinesVisible(true);// 设置显示表格线/*
+        table5.setLocation(20, 20);
+
+        table5.addSelectionListener(new SelectionAdapter() {
+            public void widgetSelected(SelectionEvent e) {
+                // 获得所有的行数
+                int total = table5.getItemCount();
+                // 循环所有行
+                for (int i = 0; i < total; i++) {
+                    TableItem item = table5.getItem(i);
+
+                    // 如果该行为选中状态，改变背景色和前景色，否则颜色设置
+                    if (table5.isSelected(i)) {
+                        item.setChecked(true);
+                        item.setBackground(group_insert_map.getDisplay().getSystemColor(SWT.COLOR_RED));
+                        item.setForeground(group_insert_map.getDisplay().getSystemColor(SWT.COLOR_WHITE));
+                    } else {
+                        item.setBackground(null);
+                        item.setForeground(null);
+                    }
+                }
+            }
+
+        });
+        table5.addListener(SWT.MouseDoubleClick, new Listener() {//双击取消选择
+            @Override
+            public void handleEvent(Event event) {
+                TableItem[] items = table5.getSelection();
+                items[0].setChecked(false);
+            }
+        });// 创建表头的字符串数组
+    }
+
     private void initTable_join() {
         GridData gridData = new org.eclipse.swt.layout.GridData();
         gridData.horizontalAlignment = SWT.FILL;
@@ -2026,6 +2064,64 @@ public class SourceNodeDialog extends Dialog {
         return true;
     }
 
+    private boolean checkInsertIntegrity() {
+        MessageBox box = new MessageBox(shell);
+        if (combo_source.getText().equals("")) {
+            box.setMessage("请选择指定的数据源");
+            box.open();
+            return false;
+        }
+        if (combo_insert_datasourceType.getSelectionIndex() == 0) {//DB
+            String type = combo_insert_db_type.getText().trim();
+            String host = text_insert_db_host.getText().trim();
+            String port = text_insert_db_port.getText().trim();
+            String dbName = text_insert_db_name.getText().trim();
+            String user = text_insert_db_username.getText().trim();
+            String password = text_insert_db_password.getText().trim();
+            String tableName = text_insert_db_table.getText().trim();
+            if (type.equals("") || host.equals("") || port.equals("") || dbName.equals("") || user.equals("")
+                    || password.equals("") || tableName.equals("")) {
+                box.setMessage("请填写完整目标数据库连接信息！");
+                box.open();
+                return false;
+            }
+        } else if (combo_insert_datasourceType.getSelectionIndex() == 1) {//Hive
+            String host = text_insert_hive_host.getText().trim();
+            String port = text_insert_hive_port.getText().trim();
+            String dbName = text_insert_hive_db_name.getText().trim();
+            String tableName = text_insert_hive_table.getText().trim();
+            if (host.equals("") || port.equals("") || dbName.equals("") || tableName.equals("")) {
+                box.setMessage("请填写完整目标Hive连接信息！");
+                box.open();
+                return false;
+            }
+        } else if (combo_insert_datasourceType.getSelectionIndex() == 2) {//File
+            String type = combo_insert_file_type.getText().trim();
+            String host = text_insert_file_host.getText().trim();
+            String port = text_insert_file_port.getText().trim();
+            String path = text_insert_file_path.getText().trim();
+            if (host.equals("") || port.equals("") || type.equals("") || path.equals("")) {
+                box.setMessage("请填写完整目标文件源连接信息！");
+                box.open();
+                return false;
+            }
+        } else if (combo_insert_datasourceType.getSelectionIndex() == 3) {//UOM
+            String brokerList = text_insert_uom_brokerList.getText().trim();
+            String topic = text_insert_uom_topic.getText().trim();
+            String keySer = text_insert_uom_keySer.getText().trim();
+            String valueSer = text_insert_uom_valueSer.getText().trim();
+            String partitionCounts = text_insert_uom_partitionCounts.getText().trim();
+            String topicReplication = text_insert_replication.getText().trim();
+            if (brokerList.equals("") || topic.equals("") || keySer.equals("") || valueSer.equals("") || partitionCounts.equals("")
+                    || topicReplication.equals("")) {
+                box.setMessage("请填写完整目标UOM连接信息");
+                box.open();
+                return false;
+            }
+        }
+        return true;
+    }
+
     private boolean checkIntegrity() {
         if (combo_datasoureType.getSelectionIndex() == 0) {//DB
             String type = combo_db_type.getText().trim();
@@ -2066,6 +2162,25 @@ public class SourceNodeDialog extends Dialog {
             }
         }
         return true;
+    }
+
+    private Col[] generateDataSourceInfo2() {
+        String dataSource = "";
+        String sourceType = "";
+        if (combo_insert_datasourceType.getSelectionIndex() == 0) {//DB
+            String type = combo_insert_db_type.getText().trim();
+            String host = text_insert_db_host.getText().trim();
+            String port = text_insert_db_port.getText().trim();
+            String dbName = text_insert_db_name.getText().trim();
+            String user = text_insert_db_username.getText().trim();
+            String password = text_insert_db_password.getText().trim();
+            String tableName = text_insert_db_table.getText().trim();
+            sourceType = "Database";
+            dataSource = type + "###" + host + "###" + port + "###" + dbName + "###" + user + "###" + password + "###" + tableName;
+        } else {
+            return null;
+        }
+        return new SourceHelper().getSourceInfo(sourceType, dataSource);
     }
 
     private Col[] generateDataSourceInfo() {
@@ -2177,7 +2292,7 @@ public class SourceNodeDialog extends Dialog {
     }
 
     private String[] getCurrentTableList() {
-        LinkedHashMap<String,Dataset<Row>> map=wholeNameToDataFrame.size()==0?nameToDataFrame:wholeNameToDataFrame;
+        LinkedHashMap<String, Dataset<Row>> map = wholeNameToDataFrame.size() == 0 ? nameToDataFrame : wholeNameToDataFrame;
         String[] list = new String[map.size()];
         int i = 0;
         for (Map.Entry<String, Dataset<Row>> entry : map.entrySet()) {
@@ -2188,7 +2303,7 @@ public class SourceNodeDialog extends Dialog {
     }
 
     private String[] getCurrentTableColumns(String tableName) {
-        LinkedHashMap<String,Dataset<Row>> map=wholeNameToDataFrame.size()==0?nameToDataFrame:wholeNameToDataFrame;
+        LinkedHashMap<String, Dataset<Row>> map = wholeNameToDataFrame.size() == 0 ? nameToDataFrame : wholeNameToDataFrame;
         Dataset<Row> df = map.get(tableName);
         return df.schema().fieldNames();
     }
@@ -2200,16 +2315,92 @@ public class SourceNodeDialog extends Dialog {
         }
     }
 
-    private void initTempTableDataframe(){
+    private void initTempTableDataframe() {
         tempToDataFrame.clear();
         wholeNameToDataFrame.clear();
         wholeNameToDataFrame.putAll(nameToDataFrame);
-        for(JoinInfo info:joinInfos){
-            Dataset<Row> df=new DataFrameGetter().getJoinDataFrame(info,wholeNameToDataFrame);
-            tempToDataFrame.put(info.getTempTableName(),df);
-            wholeNameToDataFrame.put(info.getTempTableName(),df);
+        for (JoinInfo info : joinInfos) {
+            Dataset<Row> df = new DataFrameGetter().getJoinDataFrame(info, wholeNameToDataFrame);
+            tempToDataFrame.put(info.getTempTableName(), df);
+            wholeNameToDataFrame.put(info.getTempTableName(), df);
         }
     }
+
+    private InsertMapInfo createInsertInfo(InsertMapInfo.InsertMapInfoBuilder builder) {
+        builder.dataSource(combo_source.getText());
+        InsertMapInfo insertMapInfo = null;
+        switch (combo_insert_datasourceType.getSelectionIndex()) {
+            case 0:
+                DBDestInfo dbDestInfo = DBDestInfo.builder()
+                        .type(combo_insert_db_type.getText().trim())
+                        .host(text_insert_db_host.getText().trim())
+                        .port(text_insert_db_port.getText().trim())
+                        .dbName(text_insert_db_name.getText().trim())
+                        .userName(text_insert_db_username.getText().trim())
+                        .password(text_insert_db_password.getText().trim())
+                        .tableName(text_insert_db_table.getText().trim())
+                        .mode(combo_insert_db_mode.getText().trim())
+                        .build();
+                insertMapInfo = builder.destInfo(dbDestInfo).insertColumnsMap(insertList).build();
+                break;
+            case 1:
+                HiveDestInfo hiveDestInfo = HiveDestInfo.builder()
+                        .host(text_insert_hive_host.getText().trim())
+                        .port(text_insert_hive_port.getText().trim())
+                        .dbName(text_hive_db_name.getText().trim())
+                        .tableName(text_hive_table.getText().trim())
+                        .mode(combo_insert_hive_mode.getText().trim())
+                        .build();
+                insertMapInfo = builder.destInfo(hiveDestInfo).selectedColumns(insertList).build();
+                break;
+            case 2:
+                FileDestInfo fileDestInfo = FileDestInfo.builder()
+                        .type(combo_insert_file_type.getText().trim())
+                        .host(text_insert_file_host.getText().trim())
+                        .port(text_insert_file_port.getText().trim())
+                        .path(text_file_path.getText().trim())
+                        .mode(combo_insert_file_mode.getText().trim())
+                        .build();
+                insertMapInfo = builder.destInfo(fileDestInfo).selectedColumns(insertList).build();
+                break;
+            case 3:
+                UOMDestInfo uomDestInfo = UOMDestInfo.builder()
+                        .brokerList(text_insert_uom_brokerList.getText().trim())
+                        .topic(text_insert_uom_topic.getText().trim())
+                        .keySerializer(text_insert_uom_keySer.getText().trim())
+                        .valueSerializer(text_insert_uom_valueSer.getText().trim())
+                        .partitionCounts(text_insert_uom_partitionCounts.getText().trim())
+                        .replication(text_insert_replication.getText().trim())
+                        .mode(combo_insert_file_mode.getText().trim())
+                        .build();
+                insertMapInfo = builder.destInfo(uomDestInfo).selectedColumns(insertList).build();
+                break;
+            default:
+                return null;
+        }
+        return insertMapInfo;
+    }
+
+    public String getIntegrateModel(InsertMapInfo insertMapInfo) {
+        IntegrateModel model = new IntegrateModel();
+        ArrayList<String> sourceList = new ArrayList<>();
+        for (Map.Entry entry : nameToSource.entrySet()) {
+            sourceList.add(JSONObject.toJSONString(entry.getValue()));
+        }
+        model.setSourceList(sourceList);
+        model.setJoinInfos(joinInfos);
+        model.setInsertMapInfo(insertMapInfo);
+        model.setSyncConfig(syncConfig);
+
+        String s = JSONObject.toJSONString(model);
+        s = s.replace("\"{", "{");
+        s = s.replace("}\"", "}");
+        s = s.replace("\\", "");
+        System.out.println(s);
+        FileUtils.write("G:/properties/test.txt", s);
+        return s;
+    }
+
 }
 
 

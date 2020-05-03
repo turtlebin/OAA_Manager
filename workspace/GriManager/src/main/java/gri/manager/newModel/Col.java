@@ -13,4 +13,12 @@ public class Col {
         this.name=name;
         this.type=type;
     }
+
+    public String getName(){
+        return this.name;
+    }
+
+    public DataType getType(){
+        return this.type;
+    }
 }

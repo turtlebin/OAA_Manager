@@ -7,46 +7,193 @@ import java.util.ArrayList;
 
 @Data
 @ToString(callSuper = true)
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class DBSourceInfo implements DataSourceInfo {
     @JSONField(ordinal = 1)
-    private String type = "";
+    private String alias;
     @JSONField(ordinal = 2)
-    private String partitionColumn = "";
+    private String type = "";
     @JSONField(ordinal = 3)
-    private int lowerBound = -1;
+    private String partitionColumn = "";
     @JSONField(ordinal = 4)
-    private int upperBound = -1;
+    private int lowerBound = -1;
     @JSONField(ordinal = 5)
-    private int partitionCount = -1;
+    private int upperBound = -1;
     @JSONField(ordinal = 6)
-    private String userName = "";
+    private int partitionCount = -1;
     @JSONField(ordinal = 7)
-    private String password = "";
+    private String userName = "";
     @JSONField(ordinal = 8)
-    private String dbName = "";
+    private String password = "";
     @JSONField(ordinal = 9)
-    private String tableName = "";
+    private String dbName = "";
     @JSONField(ordinal = 10)
-    private String whereClause = "";
+    private String tableName = "";
     @JSONField(ordinal = 11)
-    private String timeStampColumn = "";
+    private String whereClause = "";
     @JSONField(ordinal = 12)
-    private String time = "";
+    private String timeStampColumn = "";
     @JSONField(ordinal = 13)
-    private String addSource = "";
+    private String time = "";
     @JSONField(ordinal = 14)
-    private String host = "";
+    private String addSource = "";
     @JSONField(ordinal = 15)
-    private String port = "";
+    private String host = "";
     @JSONField(ordinal = 16)
-    private String sql = "";
+    private String port = "";
     @JSONField(ordinal = 17)
+    private String sql = "";
+    @JSONField(ordinal = 18)
     private ArrayList<Col2> colList;
     public String getSourceType() {
         return "Database";
+    }
+
+    public static DBSourceInfo.DBSourceInfoBuilder builder(){
+        return new DBSourceInfo.DBSourceInfoBuilder();
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getPartitionColumn() {
+        return partitionColumn;
+    }
+
+    public void setPartitionColumn(String partitionColumn) {
+        this.partitionColumn = partitionColumn;
+    }
+
+    public int getLowerBound() {
+        return lowerBound;
+    }
+
+    public void setLowerBound(int lowerBound) {
+        this.lowerBound = lowerBound;
+    }
+
+    public int getUpperBound() {
+        return upperBound;
+    }
+
+    public void setUpperBound(int upperBound) {
+        this.upperBound = upperBound;
+    }
+
+    public int getPartitionCount() {
+        return partitionCount;
+    }
+
+    public void setPartitionCount(int partitionCount) {
+        this.partitionCount = partitionCount;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getDbName() {
+        return dbName;
+    }
+
+    public void setDbName(String dbName) {
+        this.dbName = dbName;
+    }
+
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
+
+    public String getWhereClause() {
+        return whereClause;
+    }
+
+    public void setWhereClause(String whereClause) {
+        this.whereClause = whereClause;
+    }
+
+    public String getTimeStampColumn() {
+        return timeStampColumn;
+    }
+
+    public void setTimeStampColumn(String timeStampColumn) {
+        this.timeStampColumn = timeStampColumn;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getAddSource() {
+        return addSource;
+    }
+
+    public void setAddSource(String addSource) {
+        this.addSource = addSource;
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public String getPort() {
+        return port;
+    }
+
+    public void setPort(String port) {
+        this.port = port;
+    }
+
+    public String getSql() {
+        return sql;
+    }
+
+    public void setSql(String sql) {
+        this.sql = sql;
+    }
+
+    public ArrayList<Col2> getColList() {
+        return colList;
+    }
+
+    public void setColList(ArrayList<Col2> colList) {
+        this.colList = colList;
     }
 
     @Override
@@ -116,4 +263,144 @@ public class DBSourceInfo implements DataSourceInfo {
         return true;
     }
 
+    public static final class DBSourceInfoBuilder {
+        private String alias;
+        private String type = "";
+        private String partitionColumn = "";
+        private int lowerBound = -1;
+        private int upperBound = -1;
+        private int partitionCount = -1;
+        private String userName = "";
+        private String password = "";
+        private String dbName = "";
+        private String tableName = "";
+        private String whereClause = "";
+        private String timeStampColumn = "";
+        private String time = "";
+        private String addSource = "";
+        private String host = "";
+        private String port = "";
+        private String sql = "";
+        private ArrayList<Col2> colList;
+
+        private DBSourceInfoBuilder() {
+        }
+
+        public static DBSourceInfoBuilder aDBSourceInfo() {
+            return new DBSourceInfoBuilder();
+        }
+
+        public DBSourceInfoBuilder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        public DBSourceInfoBuilder alias(String alias) {
+            this.alias = alias;
+            return this;
+        }
+
+        public DBSourceInfoBuilder partitionColumn(String partitionColumn) {
+            this.partitionColumn = partitionColumn;
+            return this;
+        }
+
+        public DBSourceInfoBuilder lowerBound(int lowerBound) {
+            this.lowerBound = lowerBound;
+            return this;
+        }
+
+        public DBSourceInfoBuilder upperBound(int upperBound) {
+            this.upperBound = upperBound;
+            return this;
+        }
+
+        public DBSourceInfoBuilder partitionCount(int partitionCount) {
+            this.partitionCount = partitionCount;
+            return this;
+        }
+
+        public DBSourceInfoBuilder userName(String userName) {
+            this.userName = userName;
+            return this;
+        }
+
+        public DBSourceInfoBuilder password(String password) {
+            this.password = password;
+            return this;
+        }
+
+        public DBSourceInfoBuilder dbName(String dbName) {
+            this.dbName = dbName;
+            return this;
+        }
+
+        public DBSourceInfoBuilder tableName(String tableName) {
+            this.tableName = tableName;
+            return this;
+        }
+
+        public DBSourceInfoBuilder whereClause(String whereClause) {
+            this.whereClause = whereClause;
+            return this;
+        }
+
+        public DBSourceInfoBuilder timeStampColumn(String timeStampColumn) {
+            this.timeStampColumn = timeStampColumn;
+            return this;
+        }
+
+        public DBSourceInfoBuilder time(String time) {
+            this.time = time;
+            return this;
+        }
+
+        public DBSourceInfoBuilder addSource(String addSource) {
+            this.addSource = addSource;
+            return this;
+        }
+
+        public DBSourceInfoBuilder host(String host) {
+            this.host = host;
+            return this;
+        }
+
+        public DBSourceInfoBuilder port(String port) {
+            this.port = port;
+            return this;
+        }
+
+        public DBSourceInfoBuilder sql(String sql) {
+            this.sql = sql;
+            return this;
+        }
+
+        public DBSourceInfoBuilder colList(ArrayList<Col2> colList) {
+            this.colList = colList;
+            return this;
+        }
+
+        public DBSourceInfo build() {
+            DBSourceInfo dBSourceInfo = new DBSourceInfo();
+            dBSourceInfo.setAlias(alias);
+            dBSourceInfo.setType(type);
+            dBSourceInfo.setPartitionColumn(partitionColumn);
+            dBSourceInfo.setLowerBound(lowerBound);
+            dBSourceInfo.setUpperBound(upperBound);
+            dBSourceInfo.setPartitionCount(partitionCount);
+            dBSourceInfo.setUserName(userName);
+            dBSourceInfo.setPassword(password);
+            dBSourceInfo.setDbName(dbName);
+            dBSourceInfo.setTableName(tableName);
+            dBSourceInfo.setWhereClause(whereClause);
+            dBSourceInfo.setTimeStampColumn(timeStampColumn);
+            dBSourceInfo.setTime(time);
+            dBSourceInfo.setAddSource(addSource);
+            dBSourceInfo.setHost(host);
+            dBSourceInfo.setPort(port);
+            dBSourceInfo.setSql(sql);
+            dBSourceInfo.setColList(colList);
+            return dBSourceInfo;
+        }
+    }
 }

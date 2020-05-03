@@ -7,33 +7,124 @@ import java.util.ArrayList;
 
 @Data
 @ToString(callSuper = true)
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class FileSourceInfo implements DataSourceInfo{
     @JSONField(ordinal=1)
-    private String type="";
+    private String alias;
     @JSONField(ordinal=2)
-    private String host="";
+    private String type="";
     @JSONField(ordinal=3)
-    private String port="";
+    private String host="";
     @JSONField(ordinal=4)
-    private String path="";
+    private String port="";
     @JSONField(ordinal=5)
-    private String whereClause="";
+    private String path="";
     @JSONField(ordinal=6)
-    private String timeStampColumn="";
+    private String whereClause="";
     @JSONField(ordinal=7)
-    private String time="";
+    private String timeStampColumn="";
     @JSONField(ordinal=8)
+    private String time="";
+    @JSONField(ordinal=9)
     private String addSource="";
-    @JSONField(ordinal = 9)
-    private String sql="";
     @JSONField(ordinal = 10)
+    private String sql="";
+    @JSONField(ordinal = 11)
     private ArrayList<Col2> colList;
 
     public String getSourceType(){
         return "File";
+    }
+
+    public static FileSourceInfo.FileSourceInfoBuilder builder(){
+        return new FileSourceInfo.FileSourceInfoBuilder();
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public String getPort() {
+        return port;
+    }
+
+    public void setPort(String port) {
+        this.port = port;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public String getWhereClause() {
+        return whereClause;
+    }
+
+    public void setWhereClause(String whereClause) {
+        this.whereClause = whereClause;
+    }
+
+    public String getTimeStampColumn() {
+        return timeStampColumn;
+    }
+
+    public void setTimeStampColumn(String timeStampColumn) {
+        this.timeStampColumn = timeStampColumn;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getAddSource() {
+        return addSource;
+    }
+
+    public void setAddSource(String addSource) {
+        this.addSource = addSource;
+    }
+
+    public String getSql() {
+        return sql;
+    }
+
+    public void setSql(String sql) {
+        this.sql = sql;
+    }
+
+    public ArrayList<Col2> getColList() {
+        return colList;
+    }
+
+    public void setColList(ArrayList<Col2> colList) {
+        this.colList = colList;
     }
 
     @Override
@@ -91,5 +182,97 @@ public class FileSourceInfo implements DataSourceInfo{
             }
         }
         return true;
+    }
+
+    public static final class FileSourceInfoBuilder {
+        private String alias;
+        private String type="";
+        private String host="";
+        private String port="";
+        private String path="";
+        private String whereClause="";
+        private String timeStampColumn="";
+        private String time="";
+        private String addSource="";
+        private String sql="";
+        private ArrayList<Col2> colList;
+
+        private FileSourceInfoBuilder() {
+        }
+
+        public static FileSourceInfoBuilder aFileSourceInfo() {
+            return new FileSourceInfoBuilder();
+        }
+
+        public FileSourceInfoBuilder alias(String alias) {
+            this.alias = alias;
+            return this;
+        }
+
+        public FileSourceInfoBuilder type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        public FileSourceInfoBuilder host(String host) {
+            this.host = host;
+            return this;
+        }
+
+        public FileSourceInfoBuilder port(String port) {
+            this.port = port;
+            return this;
+        }
+
+        public FileSourceInfoBuilder path(String path) {
+            this.path = path;
+            return this;
+        }
+
+        public FileSourceInfoBuilder whereClause(String whereClause) {
+            this.whereClause = whereClause;
+            return this;
+        }
+
+        public FileSourceInfoBuilder timeStampColumn(String timeStampColumn) {
+            this.timeStampColumn = timeStampColumn;
+            return this;
+        }
+
+        public FileSourceInfoBuilder time(String time) {
+            this.time = time;
+            return this;
+        }
+
+        public FileSourceInfoBuilder addSource(String addSource) {
+            this.addSource = addSource;
+            return this;
+        }
+
+        public FileSourceInfoBuilder sql(String sql) {
+            this.sql = sql;
+            return this;
+        }
+
+        public FileSourceInfoBuilder colList(ArrayList<Col2> colList) {
+            this.colList = colList;
+            return this;
+        }
+
+        public FileSourceInfo build() {
+            FileSourceInfo fileSourceInfo = new FileSourceInfo();
+            fileSourceInfo.setAlias(alias);
+            fileSourceInfo.setType(type);
+            fileSourceInfo.setHost(host);
+            fileSourceInfo.setPort(port);
+            fileSourceInfo.setPath(path);
+            fileSourceInfo.setWhereClause(whereClause);
+            fileSourceInfo.setTimeStampColumn(timeStampColumn);
+            fileSourceInfo.setTime(time);
+            fileSourceInfo.setAddSource(addSource);
+            fileSourceInfo.setSql(sql);
+            fileSourceInfo.setColList(colList);
+            return fileSourceInfo;
+        }
     }
 }

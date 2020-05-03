@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import gri.driver.model.process.SourceNode;
+import gri.manager.ui.window.newWindow.FileIncNodeDialog;
 import gri.manager.ui.window.newWindow.SourceNodeDialog;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.MenuManager;
@@ -98,6 +99,7 @@ public class GlobalViewTreeMenu implements MouseListener {
 	private Action updataAllSync;
 
 	private Action newSourceNode;
+	private Action newFileIncremental;
 	
 	private String CurrentUser;
 	
@@ -138,7 +140,6 @@ public class GlobalViewTreeMenu implements MouseListener {
 			}
 		}
 	}
-
 
 
 	// 空节点右键菜单
@@ -201,9 +202,8 @@ public class GlobalViewTreeMenu implements MouseListener {
 		menuManager.add(this.deleteGriDoc);
 		menuManager.add(this.griDocProperty);
 		menuManager.add(this.previewData);
-
+		menuManager.add(this.newFileIncremental);
 		menuManager.add(this.newSourceNode);
-
 
 		if(!CurrentUser.equals("root")) {
 			this.newSection.setEnabled(false);
@@ -341,7 +341,7 @@ public class GlobalViewTreeMenu implements MouseListener {
 	}
 	
 	private void createActions() {
-		
+
 		this.updateSync=new Action("修改同步配置") {
 			public void run() {
 				Paragraph paragraph=(Paragraph) ((GlobalViewTreeNode)item.getData()).data;
@@ -597,6 +597,13 @@ public class GlobalViewTreeMenu implements MouseListener {
 		this.newParagraph3=new Action("新建段3") {
 			public void run() {
 				new ParagraphDialog3(Constant.WindowType_Add, ((GlobalViewTreeNode) item.getData()), mainWindowShell,
+						SWT.CLOSE | SWT.APPLICATION_MODAL).open();
+			}
+		};
+
+		this.newFileIncremental=new Action("新增文件增量同步配置") {
+			public void run() {
+				new FileIncNodeDialog(Constant.WindowType_Add, ((GlobalViewTreeNode) item.getData()), mainWindowShell,
 						SWT.CLOSE | SWT.APPLICATION_MODAL).open();
 			}
 		};

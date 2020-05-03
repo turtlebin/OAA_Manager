@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import gri.manager.newModel.SyncConfig;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
@@ -75,6 +76,8 @@ public class SyncConfigDialog extends Dialog {
 	private String oldSyncType;
 	private String oldSyncWarmInfo;
 
+	private SyncConfig syncConfig;
+
 	private GlobalViewTreeNode node;
 
 	/**
@@ -88,6 +91,14 @@ public class SyncConfigDialog extends Dialog {
 		this.parentShell = parent;
 		this.paragraph = paragraph;
 		this.tempParagraph = paragraph;
+	}
+
+	public SyncConfigDialog(Paragraph paragraph, SyncConfig syncConfig, Shell parent, int style) {
+		super(parent, style);
+		this.parentShell = parent;
+		this.paragraph = paragraph;
+		this.tempParagraph = paragraph;
+		this.syncConfig=syncConfig;
 	}
 
 	public SyncConfigDialog(Paragraph paragraph, GlobalViewTreeNode node, Shell parent, int style, boolean update) {// 修改单个段同步配置时使用
@@ -156,20 +167,23 @@ public class SyncConfigDialog extends Dialog {
 		composite.setBounds(10, 10, 441, 447);
 
 		Label label = new Label(composite, SWT.NONE);
+		label.setVisible(false);
 		label.setText("同步方向：");
 		label.setBounds(10, 7, 61, 17);
 
 		combo_syncDirection = new Combo(composite, SWT.READ_ONLY);
 		combo_syncDirection.setItems(new String[] { "正向（数据源 -> 数格引擎）" });
+		combo_syncDirection.setVisible(false);
 		combo_syncDirection.setBounds(140, 7, 206, 25);
+		combo_syncDirection.select(0);
 
 		Label label_1 = new Label(composite, SWT.NONE);
 		label_1.setText("同步时机：");
-		label_1.setBounds(10, 50, 61, 17);
+		label_1.setBounds(10, 7, 61, 17);
 
 		combo_syncTimeType = new Combo(composite, SWT.READ_ONLY);
 		combo_syncTimeType.setItems(new String[] { "温同步（定时/周期）", "冷同步（手动）" });
-		combo_syncTimeType.setBounds(140, 47, 206, 25);
+		combo_syncTimeType.setBounds(140, 7, 206, 25);
 
 		combo_syncTimeType.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -182,15 +196,15 @@ public class SyncConfigDialog extends Dialog {
 		});
 
 		Label label_method = new Label(composite, SWT.NONE);
-		label_method.setText("同步方法 ：");
-		label_method.setBounds(10, 93, 61, 17);
+		label_method.setText("同步类型 ：");
+		label_method.setBounds(10, 63, 61, 17);
 
 		button_method_all = new Button(composite, SWT.RADIO);
-		button_method_all.setBounds(140, 91, 86, 17);
+		button_method_all.setBounds(140, 61, 86, 17);
 		button_method_all.setText("全量同步");
 
 		button_method_increment = new Button(composite, SWT.RADIO);
-		button_method_increment.setBounds(280, 91, 86, 17);
+		button_method_increment.setBounds(280, 61, 86, 17);
 		button_method_increment.setText("增量同步");
 
 		composite_syncTimeConfig = new Composite(composite, SWT.NONE);
@@ -589,9 +603,11 @@ public class SyncConfigDialog extends Dialog {
 						showMessage("请填写完整温同步时间详情！", shell);
 						return;
 					}
+					syncConfig.setSyncMethod(DriverConstant.SyncTimeType_1);
 					tempParagraph.setSyncTimeType(DriverConstant.SyncTimeType_1);
 					break;
 				case 1:
+					syncConfig.setSyncMethod(DriverConstant.SyncTimeType_2);
 					tempParagraph.setSyncTimeType(DriverConstant.SyncTimeType_2);
 					break;
 				default:
@@ -605,6 +621,12 @@ public class SyncConfigDialog extends Dialog {
 					updateParagraphSync(tempParagraph);
 					updateSyncTaskManager(tempParagraph);
 				}
+				if(button_method_increment.getSelection()){
+					syncConfig.setSyncType("增量同步");
+				}else{
+					syncConfig.setSyncType("全量同步");
+				}
+				syncConfig.setSyncTimeConfig(tempParagraph.getWarmSyncDetail());
 				paragraph.setSyncDirectionType(tempParagraph.getSyncDirectionType());
 				paragraph.setSyncTimeType(tempParagraph.getSyncTimeType());
 				paragraph.setWarmSyncDetail(tempParagraph.getWarmSyncDetail());

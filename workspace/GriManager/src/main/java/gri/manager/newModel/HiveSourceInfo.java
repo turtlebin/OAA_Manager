@@ -7,33 +7,126 @@ import java.util.ArrayList;
 
 @Data
 @ToString(callSuper = true)
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class HiveSourceInfo implements DataSourceInfo {
     @JSONField(ordinal = 1)
+    private String alias;
+    @JSONField(ordinal = 2)
     private String host;
-    @JSONField(ordinal = 12)
-    private String port;
     @JSONField(ordinal = 3)
-    private String dbName;
+    private String port;
     @JSONField(ordinal = 4)
-    private String tableName;
+    private String dbName;
     @JSONField(ordinal = 5)
-    private String whereClause;
+    private String tableName;
     @JSONField(ordinal = 6)
-    private String timeStampColumn;
+    private String whereClause;
     @JSONField(ordinal = 7)
-    private String time;
+    private String timeStampColumn;
     @JSONField(ordinal = 8)
-    private String addSource;
+    private String time;
     @JSONField(ordinal = 9)
-    private String sql;
+    private String addSource;
     @JSONField(ordinal = 10)
+    private String sql;
+    @JSONField(ordinal = 11)
     private ArrayList<Col2> colList;
 
     public String getSourceType() {
         return "Hive";
+    }
+
+    public static HiveSourceInfo.HiveSourceInfoBuilder builder(){
+        return new HiveSourceInfo.HiveSourceInfoBuilder();
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public String getPort() {
+        return port;
+    }
+
+    public void setPort(String port) {
+        this.port = port;
+    }
+
+    public String getDbName() {
+        return dbName;
+    }
+
+    public void setDbName(String dbName) {
+        this.dbName = dbName;
+    }
+
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
+
+    public String getWhereClause() {
+        return whereClause;
+    }
+
+    public void setWhereClause(String whereClause) {
+        this.whereClause = whereClause;
+    }
+
+    public String getTimeStampColumn() {
+        return timeStampColumn;
+    }
+
+    public void setTimeStampColumn(String timeStampColumn) {
+        this.timeStampColumn = timeStampColumn;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getAddSource() {
+        return addSource;
+    }
+
+    public void setAddSource(String addSource) {
+        this.addSource = addSource;
+    }
+
+    public String getSql() {
+        return sql;
+    }
+
+    public void setSql(String sql) {
+        this.sql = sql;
+    }
+
+    public ArrayList<Col2> getColList() {
+        return colList;
+    }
+
+    public void setColList(ArrayList<Col2> colList) {
+        this.colList = colList;
     }
 
     @Override
@@ -91,5 +184,97 @@ public class HiveSourceInfo implements DataSourceInfo {
             }
         }
         return true;
+    }
+
+    public static final class HiveSourceInfoBuilder {
+        private String alias;
+        private String host;
+        private String port;
+        private String dbName;
+        private String tableName;
+        private String whereClause;
+        private String timeStampColumn;
+        private String time;
+        private String addSource;
+        private String sql;
+        private ArrayList<Col2> colList;
+
+        private HiveSourceInfoBuilder() {
+        }
+
+        public static HiveSourceInfoBuilder aHiveSourceInfo() {
+            return new HiveSourceInfoBuilder();
+        }
+
+        public HiveSourceInfoBuilder alias(String alias) {
+            this.alias = alias;
+            return this;
+        }
+
+        public HiveSourceInfoBuilder host(String host) {
+            this.host = host;
+            return this;
+        }
+
+        public HiveSourceInfoBuilder port(String port) {
+            this.port = port;
+            return this;
+        }
+
+        public HiveSourceInfoBuilder dbName(String dbName) {
+            this.dbName = dbName;
+            return this;
+        }
+
+        public HiveSourceInfoBuilder tableName(String tableName) {
+            this.tableName = tableName;
+            return this;
+        }
+
+        public HiveSourceInfoBuilder whereClause(String whereClause) {
+            this.whereClause = whereClause;
+            return this;
+        }
+
+        public HiveSourceInfoBuilder timeStampColumn(String timeStampColumn) {
+            this.timeStampColumn = timeStampColumn;
+            return this;
+        }
+
+        public HiveSourceInfoBuilder time(String time) {
+            this.time = time;
+            return this;
+        }
+
+        public HiveSourceInfoBuilder addSource(String addSource) {
+            this.addSource = addSource;
+            return this;
+        }
+
+        public HiveSourceInfoBuilder sql(String sql) {
+            this.sql = sql;
+            return this;
+        }
+
+        public HiveSourceInfoBuilder colList(ArrayList<Col2> colList) {
+            this.colList = colList;
+            return this;
+        }
+
+        public HiveSourceInfo build() {
+            HiveSourceInfo hiveSourceInfo = new HiveSourceInfo();
+            hiveSourceInfo.setAlias(alias);
+            hiveSourceInfo.setHost(host);
+            hiveSourceInfo.setPort(port);
+            hiveSourceInfo.setDbName(dbName);
+            hiveSourceInfo.setTableName(tableName);
+            hiveSourceInfo.setWhereClause(whereClause);
+            hiveSourceInfo.setTimeStampColumn(timeStampColumn);
+            hiveSourceInfo.setTime(time);
+            hiveSourceInfo.setAddSource(addSource);
+            hiveSourceInfo.setSql(sql);
+            hiveSourceInfo.setColList(colList);
+            return hiveSourceInfo;
+        }
     }
 }

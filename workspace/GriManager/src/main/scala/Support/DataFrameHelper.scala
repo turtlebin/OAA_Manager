@@ -4,6 +4,7 @@ import java.util
 
 import gri.manager.newModel.{Col2, DBSourceInfo, FileSourceInfo, HiveSourceInfo}
 import org.apache.spark.sql.{Column, DataFrame}
+
 import scala.collection.JavaConverters
 
 
@@ -136,6 +137,20 @@ object DataFrameHelper {
 
   def getFileTableName(sourceInfo:FileSourceInfo): String ={
    sourceInfo.getPath.split("/").reverse.filter(x=>(!x.equals("*"))).head
+  }
+
+  def getUniqueColNameDF(df:DataFrame):DataFrame={
+    val list=new util.ArrayList[String]()
+    df.schema.names.foreach(x=> {
+      if (!list.contains(x)) {
+        list.add(x)
+      }else{
+        list.add(x+"_2")
+      }
+    })
+    val schema=JavaConverters.asScalaIteratorConverter(list.iterator()).asScala.toSeq;
+    val dfRenamed=df.toDF(schema: _*)
+    dfRenamed
   }
 
 }

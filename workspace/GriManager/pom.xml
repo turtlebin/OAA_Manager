@@ -134,6 +134,7 @@
 		</repository>
 	</repositories>
 	<build>
+<!--		<sourceDirectory>src/main/scala</sourceDirectory>>-->
 		<pluginManagement>
 			<plugins>
 				<plugin>

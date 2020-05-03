@@ -17,6 +17,11 @@ object SourceInfoHelper {
     sourceInfo
   }
 
+  def getSourceInfo(dataFrame: DataFrame)={
+    val sourceInfo=dataFrame.schema.fields.map(x=>new Col(x.name,x.dataType))
+    sourceInfo
+  }
+
   def getDatabaseSourceInfo(driver: String, url: String,tableName: String,userName:String,password:String): DataFrame = {
     val df=spark.read.format("jdbc")
       .option("url", url)

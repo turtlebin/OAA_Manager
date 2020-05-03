@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="EclipseModuleManager">
-    <libelement value="jar://$MODULE_DIR$/GriDriver/lib/EIB.ServerEngine-1.0-SNAPSHOT-jar-with-dependencies.jar!/" />
-    <libelement value="jar://$MODULE_DIR$/GriManager/lib/json/commons-beanutils-1.8.0.jar!/" />
-    <libelement value="jar://$MODULE_DIR$/GriManager/lib/json/commons-collections-3.2.1.jar!/" />
-    <libelement value="jar://$MODULE_DIR$/GriManager/lib/json/commons-lang-2.5.jar!/" />
-    <libelement value="jar://$MODULE_DIR$/GriManager/lib/json/commons-logging-1.1.1.jar!/" />
-    <libelement value="jar://$MODULE_DIR$/GriManager/lib/json/ezmorph-1.0.6.jar!/" />
-    <libelement value="jar://$MODULE_DIR$/GriManager/lib/json/json-lib-2.4-jdk15.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../../test/GriDriver/lib/EIB.ServerEngine-1.0-SNAPSHOT-jar-with-dependencies.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../../test/GriManager/lib/json/commons-beanutils-1.8.0.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../../test/GriManager/lib/json/commons-collections-3.2.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../../test/GriManager/lib/json/commons-lang-2.5.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../../test/GriManager/lib/json/commons-logging-1.1.1.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../../test/GriManager/lib/json/ezmorph-1.0.6.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/../../test/GriManager/lib/json/json-lib-2.4-jdk15.jar!/" />
     <src_description expected_position="0">
-      <src_folder value="file://$MODULE_DIR$/GriDriver/src" expected_position="0" />
+      <src_folder value="file://$MODULE_DIR$/../../test/GriDriver/src" expected_position="0" />
     </src_description>
   </component>
   <component name="NewModuleRootManager">
-    <output url="file://$MODULE_DIR$/GriDriver/bin" />
+    <output url="file://$MODULE_DIR$/../../test/GriDriver/bin" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/GriDriver">
-      <sourceFolder url="file://$MODULE_DIR$/GriDriver/src" isTestSource="false" />
+    <content url="file://$MODULE_DIR$/../../test/GriDriver">
+      <sourceFolder url="file://$MODULE_DIR$/../../test/GriDriver/src" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library name="EIB.ServerEngine-1.0-SNAPSHOT-jar-with-dependencies.jar">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/GriDriver/lib/EIB.ServerEngine-1.0-SNAPSHOT-jar-with-dependencies.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../test/GriDriver/lib/EIB.ServerEngine-1.0-SNAPSHOT-jar-with-dependencies.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -31,7 +31,7 @@
     <orderEntry type="module-library">
       <library name="commons-beanutils-1.8.0.jar">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/GriManager/lib/json/commons-beanutils-1.8.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../test/GriManager/lib/json/commons-beanutils-1.8.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -40,7 +40,7 @@
     <orderEntry type="module-library">
       <library name="commons-collections-3.2.1.jar">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/GriManager/lib/json/commons-collections-3.2.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../test/GriManager/lib/json/commons-collections-3.2.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -49,7 +49,7 @@
     <orderEntry type="module-library">
       <library name="commons-lang-2.5.jar">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/GriManager/lib/json/commons-lang-2.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../test/GriManager/lib/json/commons-lang-2.5.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -58,7 +58,7 @@
     <orderEntry type="module-library">
       <library name="commons-logging-1.1.1.jar">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/GriManager/lib/json/commons-logging-1.1.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../test/GriManager/lib/json/commons-logging-1.1.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -67,7 +67,7 @@
     <orderEntry type="module-library">
       <library name="ezmorph-1.0.6.jar">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/GriManager/lib/json/ezmorph-1.0.6.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../test/GriManager/lib/json/ezmorph-1.0.6.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -76,7 +76,7 @@
     <orderEntry type="module-library">
       <library name="json-lib-2.4-jdk15.jar">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/GriManager/lib/json/json-lib-2.4-jdk15.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../test/GriManager/lib/json/json-lib-2.4-jdk15.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -86,7 +86,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/GriDriver/lib/lombok-1.18.12.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../test/GriDriver/lib/lombok-1.18.12.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
