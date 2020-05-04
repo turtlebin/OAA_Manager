@@ -191,8 +191,6 @@ public class SourceNodeDialog extends Dialog {
     private Text text_insert_uom_valueSer;
     private Text text_insert_uom_partitionCounts;
     private Text text_insert_replication;
-    private Combo combo_uom_mode;
-
 
     private Button button_enter;
     private Button button_select_enter;
@@ -328,9 +326,9 @@ public class SourceNodeDialog extends Dialog {
 //        shell.setSize(675,900);
 //        if (parentShell != null)
 //            shell.setSize(675, 1300 - 280);
-        shell.setText("新建段");
+        shell.setText("异构数据集成配置");
         shell.setImage(
-                new Image(getParent().getDisplay(), this.getClass().getResourceAsStream("/icons/paragraph16.png")));
+                new Image(getParent().getDisplay(), this.getClass().getResourceAsStream("/icons/section16.png")));
 
         Rectangle parentBounds = parentShell.getBounds();// 父窗口居中
         Rectangle shellBounds = shell.getBounds();
@@ -618,34 +616,34 @@ public class SourceNodeDialog extends Dialog {
 
         Label label_insert_uom_brokerList = new Label(group_insert_uom_connect, SWT.NONE);
         label_insert_uom_brokerList.setText("服务器列表：");
-        label_insert_uom_brokerList.setBounds(10, 26, 80, 17);
+        label_insert_uom_brokerList.setBounds(10, 26, 90, 17);
 
         text_insert_uom_brokerList = new Text(group_insert_uom_connect, SWT.BORDER);
-        text_insert_uom_brokerList.setBounds(98, 23, 109, 25);
+        text_insert_uom_brokerList.setBounds(108, 23, 109, 25);
         text_insert_uom_brokerList.setText("localhost:9092");
 
         Label label_insert_uom_topic = new Label(group_insert_uom_connect, SWT.NONE);
         label_insert_uom_topic.setText("主题：");
-        label_insert_uom_topic.setBounds(10, 61, 80, 17);
+        label_insert_uom_topic.setBounds(10, 61, 90, 17);
 
         text_insert_uom_topic = new Text(group_insert_uom_connect, SWT.BORDER);
-        text_insert_uom_topic.setBounds(98, 58, 109, 23);
+        text_insert_uom_topic.setBounds(108, 58, 109, 23);
         text_insert_uom_topic.setText("test");
 
         Label label_keySer = new Label(group_insert_uom_connect, SWT.NONE);
         label_keySer.setText("Key序列化器：");
-        label_keySer.setBounds(10, 92, 80, 17);
+        label_keySer.setBounds(10, 92, 90, 17);
 
         text_insert_uom_keySer = new Text(group_insert_uom_connect, SWT.BORDER);
-        text_insert_uom_keySer.setBounds(98, 89, 109, 23);
+        text_insert_uom_keySer.setBounds(108, 89, 109, 23);
         text_insert_uom_keySer.setText("test");
 
         Label label_valueSer = new Label(group_insert_uom_connect, SWT.NONE);
         label_valueSer.setText("Value序列化器：");
-        label_valueSer.setBounds(10, 125, 80, 17);
+        label_valueSer.setBounds(10, 125, 90, 17);
 
         text_insert_uom_valueSer = new Text(group_insert_uom_connect, SWT.BORDER);
-        text_insert_uom_valueSer.setBounds(98, 122, 109, 23);
+        text_insert_uom_valueSer.setBounds(108, 122, 109, 23);
         text_insert_uom_valueSer.setText("root");
 
         Label label_topic_partitionCounts = new Label(group_insert_uom_connect, SWT.NONE);
@@ -668,10 +666,10 @@ public class SourceNodeDialog extends Dialog {
         label_uom_mode.setText("写入模式：");
         label_uom_mode.setBounds(300, 92, 80, 17);
 
-        combo_uom_mode = new Combo(group_insert_uom_connect, SWT.BORDER);
-        combo_uom_mode.setBounds(400, 89, 109, 23);
-        combo_uom_mode.setItems(new String[]{"覆盖", "追加"});
-        combo_uom_mode.select(0);
+        combo_insert_uom_mode = new Combo(group_insert_uom_connect, SWT.BORDER);
+        combo_insert_uom_mode.setBounds(400, 89, 109, 23);
+        combo_insert_uom_mode.setItems(new String[]{"覆盖", "追加"});
+        combo_insert_uom_mode.select(0);
 
 
         Label label_insert_hive_host = new Label(group_insert_hive_connect, SWT.NONE);
@@ -1105,7 +1103,7 @@ public class SourceNodeDialog extends Dialog {
 
         Label label_file_whereClause = new Label(group_file_connect, SWT.NONE);
         label_file_whereClause.setText("过滤条件：");
-        label_file_whereClause.setBounds(10, 139, 36, 17);
+        label_file_whereClause.setBounds(10, 139, 55, 17);
 
         text_file_whereClause = new Text(group_file_connect, SWT.BORDER | SWT.PASSWORD);
         text_file_whereClause.setBounds(83, 136, 109, 23);
@@ -2371,7 +2369,7 @@ public class SourceNodeDialog extends Dialog {
                         .valueSerializer(text_insert_uom_valueSer.getText().trim())
                         .partitionCounts(text_insert_uom_partitionCounts.getText().trim())
                         .replication(text_insert_replication.getText().trim())
-                        .mode(combo_insert_file_mode.getText().trim())
+                        .mode(combo_insert_uom_mode.getText().trim())
                         .build();
                 insertMapInfo = builder.destInfo(uomDestInfo).selectedColumns(insertList).build();
                 break;

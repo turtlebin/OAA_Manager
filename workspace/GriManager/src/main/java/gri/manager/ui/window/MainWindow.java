@@ -84,7 +84,7 @@ public class MainWindow {
 		shell = new Shell();
 		shell.setImage(new Image(Display.getCurrent(), this.getClass().getResourceAsStream("/icons/gridoc24.png")));
 		shell.setSize(686, 608);
-		shell.setText("GriDoc文档可视化管理器");
+		shell.setText("OAA数据引擎可视化配置工具");
 
 		shell.setLocation(Display.getCurrent().getClientArea().width / 2 - shell.getShell().getSize().x / 2,
 				Display.getCurrent().getClientArea().height / 2 - shell.getSize().y / 2);// 主窗口居中
@@ -202,20 +202,20 @@ public class MainWindow {
 
 		ToolItem toolItem_newConnection = new ToolItem(toolBar, SWT.NONE);
 		toolItem_newConnection.setWidth(60);
-		toolItem_newConnection.setText(" 连接 ");
+		toolItem_newConnection.setText("  配置  ");
 		toolItem_newConnection.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				newConnection();
 			}
 		});
-		toolItem_newConnection.setToolTipText("新建连接");
+		toolItem_newConnection.setToolTipText("新建配置");
 		toolItem_newConnection.setImage(new Image(toolItem_newConnection.getDisplay(),
 				this.getClass().getResourceAsStream("/icons/connection24.png")));
 
 		ToolItem toolItem_newGridoc = new ToolItem(toolBar, SWT.NONE);
 		toolItem_newGridoc.setWidth(60);
-		toolItem_newGridoc.setText("格文档");
+		toolItem_newGridoc.setText("  格文档  ");
 		toolItem_newGridoc.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -228,27 +228,27 @@ public class MainWindow {
 
 		ToolItem toolItem_newSection = new ToolItem(toolBar, SWT.NONE);
 		toolItem_newSection.setWidth(60);
-		toolItem_newSection.setText("  节  ");
+		toolItem_newSection.setText(" 数据集成 ");
 		toolItem_newSection.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				newSection();
 			}
 		});
-		toolItem_newSection.setToolTipText("新建节");
+		toolItem_newSection.setToolTipText("新建异构数据集成配置");
 		toolItem_newSection.setImage(new Image(toolItem_newSection.getDisplay(),
 				this.getClass().getResourceAsStream("/icons/section24.png")));
 
 		ToolItem toolItem_newParagraph = new ToolItem(toolBar, SWT.NONE);
 		toolItem_newParagraph.setWidth(60);
-		toolItem_newParagraph.setText("  段  ");
+		toolItem_newParagraph.setText(" 文件同步 ");
 		toolItem_newParagraph.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				newParagraph();
 			}
 		});
-		toolItem_newParagraph.setToolTipText("新建段");
+		toolItem_newParagraph.setToolTipText("新建文件增量同步配置");
 		toolItem_newParagraph.setImage(new Image(toolItem_newParagraph.getDisplay(),
 				this.getClass().getResourceAsStream("/icons/paragraph24.png")));
 
@@ -306,7 +306,7 @@ public class MainWindow {
 		
 		ToolItem toolItem_user = new ToolItem(toolBar, SWT.NONE);
 		toolItem_user.setWidth(60);
-		toolItem_user.setText(" 用户 ");
+		toolItem_user.setText("   用户   ");
 		toolItem_user.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -320,7 +320,7 @@ public class MainWindow {
 
 		ToolItem toolItem_about = new ToolItem(toolBar, SWT.NONE);
 		toolItem_about.setWidth(60);
-		toolItem_about.setText(" 关于 ");
+		toolItem_about.setText("   关于   ");
 		toolItem_about.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -333,7 +333,7 @@ public class MainWindow {
 
 		ToolItem toolItem_contact = new ToolItem(toolBar, SWT.NONE);
 		toolItem_contact.setWidth(60);
-		toolItem_contact.setText(" 联系 ");
+		toolItem_contact.setText("  联系  ");
 		toolItem_contact.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {

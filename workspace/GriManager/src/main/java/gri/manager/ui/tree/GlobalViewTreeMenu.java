@@ -192,16 +192,16 @@ public class GlobalViewTreeMenu implements MouseListener {
 	// 格文档右键菜单
 	private void initGriDocPoPMenu() {
 		MenuManager menuManager = new MenuManager();
-		menuManager.add(this.newSection);
-		menuManager.add(this.newParagraph);
+//		menuManager.add(this.newSection);
+//		menuManager.add(this.newParagraph);
 //		menuManager.add(this.newParagraph2);
-		menuManager.add(this.newParagraph3);
+//		menuManager.add(this.newParagraph3);
 		menuManager.add(this.expandAll);
 		menuManager.add(this.collapseAll);
 		menuManager.add(this.refresh);
 		menuManager.add(this.deleteGriDoc);
 		menuManager.add(this.griDocProperty);
-		menuManager.add(this.previewData);
+//		menuManager.add(this.previewData);
 		menuManager.add(this.newFileIncremental);
 		menuManager.add(this.newSourceNode);
 
@@ -227,8 +227,8 @@ public class GlobalViewTreeMenu implements MouseListener {
 		menuManager.add(this.newParagraph);
 //		menuManager.add(this.newParagraph2);
 		menuManager.add(this.newParagraph3);
-		menuManager.add(this.expandAll);
-		menuManager.add(this.collapseAll);
+//		menuManager.add(this.expandAll);
+//		menuManager.add(this.collapseAll);
 		menuManager.add(this.refresh);
 		menuManager.add(this.deleteSection);
 		menuManager.add(this.sectionProperty);
@@ -259,8 +259,8 @@ public class GlobalViewTreeMenu implements MouseListener {
 	// 段右键菜单
 	private void initParagraphPoPMenu() {
 		MenuManager menuManager = new MenuManager();
-		menuManager.add(this.expandAll);
-		menuManager.add(this.collapseAll);
+//		menuManager.add(this.expandAll);
+//		menuManager.add(this.collapseAll);
 		menuManager.add(this.refresh);
 		menuManager.add(this.deleteParagraph);
 		menuManager.add(this.paragraphProperty);
@@ -287,8 +287,8 @@ public class GlobalViewTreeMenu implements MouseListener {
 
 	private void initParagraph3PoPMenu() {
 		MenuManager menuManager = new MenuManager();
-		menuManager.add(this.expandAll);
-		menuManager.add(this.collapseAll);
+//		menuManager.add(this.expandAll);
+//		menuManager.add(this.collapseAll);
 		menuManager.add(this.refresh);
 		menuManager.add(this.deleteParagraph);
 		menuManager.add(this.paragraphProperty);
@@ -390,26 +390,26 @@ public class GlobalViewTreeMenu implements MouseListener {
 			}
 		};
 
-		this.connectionProperty = new Action("属性") {
+		this.connectionProperty = new Action("查看属性") {
 			public void run() {
 				new ConnectionDialog(Constant.WindowType_Edit, ((GlobalViewTreeNode) item.getData()), mainWindowShell,
 						SWT.CLOSE | SWT.APPLICATION_MODAL).open();
 			}
 		};
 
-		this.griDocProperty = new Action("属性") {
+		this.griDocProperty = new Action("查看属性") {
 			public void run() {
 				new GriDocDialog(Constant.WindowType_Edit, ((GlobalViewTreeNode) item.getData()), mainWindowShell,
 						SWT.CLOSE | SWT.APPLICATION_MODAL).open();
 			}
 		};
-		this.sectionProperty = new Action("属性") {
+		this.sectionProperty = new Action("查看属性") {
 			public void run() {
 				new SectionDialog(Constant.WindowType_Edit, ((GlobalViewTreeNode) item.getData()), mainWindowShell,
 						SWT.CLOSE | SWT.APPLICATION_MODAL).open();
 			}
 		};
-		this.paragraphProperty = new Action("属性") {
+		this.paragraphProperty = new Action("查看属性") {
 			public void run() {
 				if(!((((GlobalViewTreeNode) item.getData()).data instanceof Paragraph3)||((GlobalViewTreeNode) item.getData()).data instanceof Paragraph2))
 				{
@@ -608,7 +608,7 @@ public class GlobalViewTreeMenu implements MouseListener {
 			}
 		};
 
-		this.newSourceNode=new Action("新建数据结点"){
+		this.newSourceNode=new Action("新建异构数据集成配置"){
 			public void run(){
 					new SourceNodeDialog(Constant.WindowType_Add, ((GlobalViewTreeNode) item.getData()), mainWindowShell,
 							SWT.CLOSE | SWT.APPLICATION_MODAL).open();
